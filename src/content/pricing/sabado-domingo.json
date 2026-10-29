@@ -1,0 +1,10 @@
+{
+  "id": "sabado-domingo",
+  "dia": "Sábado e Domingo",
+  "funcionamento": "14h às 02h30 (Dom até 00h30)",
+  "turnos": [
+    { "periodo": "Tarde (14h às 18h)", "valor": 149, "destaque": false },
+    { "periodo": "Noite (Após as 18h)", "valor": 180, "destaque": true }
+  ],
+  "mensagemWhats": "Olá! Gostaria de reservar uma pista para o final de semana."
+}

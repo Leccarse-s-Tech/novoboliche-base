@@ -1,0 +1,173 @@
+---
+import { WHATSAPP_PHONE } from '../data/pricing';
+
+const menuItems = [
+  {
+    category: "Porções Generosas",
+    items: [
+      {
+        name: "Batata Frita Suprema",
+        desc: "Crocante por fora e macia por dentro, coberta com cheddar cremoso derretido e pedacinhos crocantes de bacon.",
+        badge: "Campeã de Pedidos",
+        price: "A partir de R$ 42,00"
+      },
+      {
+        name: "Frango a Passarinho Crocante",
+        desc: "Temperado no alho dourado e ervas finas, servido com molho especial da casa e gomos de limão.",
+        badge: "Clássico do Boliche",
+        price: "A partir de R$ 49,00"
+      },
+      {
+        name: "Isca de Picanha na Chapa",
+        desc: "Tiras suculentas aceboladas na manteiga de garrafa, acompanhadas de farofa crocante e vinagrete fresco.",
+        badge: "Premium",
+        price: "A partir de R$ 78,00"
+      },
+      {
+        name: "Bolinhos Artesanais de Queijo",
+        desc: "Massa leve e recheio de mussarela que estica a cada mordida. O petisco ideal entre uma jogada e outra.",
+        badge: "Petisco Rápido",
+        price: "A partir de R$ 38,00"
+      }
+    ]
+  },
+  {
+    category: "Pizzas de Forno & Beirutes",
+    items: [
+      {
+        name: "Pizza Mussarela Especial",
+        desc: "Molho de tomate artesanal, generosa camada de mussarela derretida, rodelas de tomate e orégano fresco.",
+        badge: "Massa Fina & Crocante",
+        price: "A partir de R$ 58,00"
+      },
+      {
+        name: "Pizza Calabresa com Catupiry",
+        desc: "Fatias finas de calabresa defumada artesanal, cebola em rodelas e requeijão Catupiry legítimo.",
+        badge: "Tradicional",
+        price: "A partir de R$ 62,00"
+      },
+      {
+        name: "Beirute da Casa (Filé Mignon)",
+        desc: "Pão sírio tostado recheado com filé mignon macio, queijo derretido, presunto, ovo, alface e maionese artesanal.",
+        badge: "Serve até 2 pessoas",
+        price: "A partir de R$ 54,00"
+      },
+      {
+        name: "Burger Artesanal no Pão Brioche",
+        desc: "Blend bovino 160g grelhado no ponto certo, queijo cheddar inglês, cebola caramelizada e molho da casa.",
+        badge: "Acompanha fritas",
+        price: "A partir de R$ 36,00"
+      }
+    ]
+  },
+  {
+    category: "Chopp Trincando & Bar",
+    items: [
+      {
+        name: "Chopp Claro Caneca Congelada",
+        desc: "Tirado com colarinho cremoso na temperatura exata de -2°C. Perfeito para comemorar cada strike!",
+        badge: "Estupidamente Gelado",
+        price: "Caneca 400ml"
+      },
+      {
+        name: "Caipirinhas de Frutas da Estação",
+        desc: "Preparadas com cachaça artesanal, vodka ou saquê: Morango, Maracujá, Limão Siciliano ou Frutas Vermelhas.",
+        badge: "Refrescante",
+        price: "Dose Individual"
+      },
+      {
+        name: "Drinks Clássicos & Autorais",
+        desc: "Gin Tônica aromático, Aperol Spritz, Moscow Mule na caneca de cobre e Mojito tradicional com hortelã.",
+        badge: "Coquetelaria",
+        price: "Cardápio Bar"
+      },
+      {
+        name: "Sucos Naturais, Refrigerantes e Água",
+        desc: "Opções sem álcool para motoristas da rodada, jovens e crianças.",
+        badge: "Sem Álcool",
+        price: "Diversos sabores"
+      }
+    ]
+  }
+];
+
+const menuWhatsUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent("Olá! Gostaria de consultar o cardápio digital completo de porções e bebidas do Novo Boliche.")}`;
+---
+
+<section id="gastronomia" class="py-20 bg-slate-950 border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Title -->
+    <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+        Gastronomia & Bar Completo
+      </div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white font-display">
+        Comida de Boteco & Chopp Trincando
+      </h2>
+      <p class="text-base sm:text-lg text-slate-300">
+        Aqui a comida é levada a sério. Peça direto na sua pista enquanto joga, ou acomode-se confortavelmente em nosso restaurante e bar.
+      </p>
+    </div>
+
+    <!-- Category Sections -->
+    <div class="space-y-12">
+      {menuItems.map((category) => (
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <h3 class="text-xl sm:text-2xl font-bold text-white font-display">
+              {category.category}
+            </h3>
+            <div class="flex-1 h-px bg-slate-800"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {category.items.map((item) => (
+              <div class="rounded-2xl bg-slate-900 border border-slate-800 p-5 flex flex-col justify-between hover:border-slate-700 transition-all duration-200 group">
+                <div>
+                  <div class="flex items-center justify-between gap-2 mb-2">
+                    <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-800 text-amber-400 border border-slate-700">
+                      {item.badge}
+                    </span>
+                  </div>
+                  <h4 class="text-base font-bold text-white group-hover:text-amber-400 transition-colors">
+                    {item.name}
+                  </h4>
+                  <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+
+                <div class="pt-4 mt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+                  <span class="text-slate-300 font-medium">{item.price}</span>
+                  <span class="text-amber-400 text-[11px] font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                    <span>Peça na pista</span>
+                    <span>→</span>
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Menu CTA Banner -->
+    <div class="mt-16 text-center bg-slate-900/80 border border-slate-800 rounded-3xl p-8 max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="text-left space-y-1">
+        <h4 class="text-lg font-bold text-white">Deseja consultar o cardápio completo com preços?</h4>
+        <p class="text-xs text-slate-400">Temos mais de 40 opções de porções, pizzas, lanches, sobremesas e bebidas.</p>
+      </div>
+
+      <a 
+        href={menuWhatsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whitespace-nowrap px-6 py-3 rounded-xl font-bold text-sm text-slate-950 bg-amber-400 hover:bg-amber-300 shadow-lg shadow-amber-500/20 transition-all"
+      >
+        Pedir Cardápio via WhatsApp
+      </a>
+    </div>
+
+  </div>
+</section>

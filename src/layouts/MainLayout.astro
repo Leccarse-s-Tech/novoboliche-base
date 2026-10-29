@@ -1,0 +1,107 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Novo Boliche Vila Maria | Pistas Profissionais, Bar & Gastronomia na Zona Norte SP",
+  description = "Venha se divertir no Novo Boliche Vila Maria na Zona Norte de SP! Pistas automáticas, porções especiais, chopp gelado, pacotes para aniversários e confraternizações. Confira horários e reserve sua pista!",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://novobolichevilamaria.com.br");
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "BowlingAlley",
+  "name": "Novo Boliche Vila Maria",
+  "image": "https://novobolichevilamaria.com.br/og-image.jpg",
+  "telephone": "+55-11-2967-4220",
+  "priceRange": "$$",
+  "url": "https://novobolichevilamaria.com.br",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Guilherme Cotching, 1086",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "02113-012",
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -23.5186,
+    "longitude": -46.5891
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"],
+      "opens": "16:00",
+      "closes": "00:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "16:00",
+      "closes": "02:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "14:00",
+      "closes": "02:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "14:00",
+      "closes": "00:30"
+    }
+  ],
+  "servesCuisine": ["Pizzas", "Porções", "Hambúrgueres", "Drinks", "Chopp"],
+  "hasMap": "https://maps.google.com/?q=Av.+Guilherme+Cotching,+1086+-+Vila+Maria,+São+Paulo+-+SP"
+};
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Novo Boliche Vila Maria" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://novobolichevilamaria.com.br/og-image.jpg" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://novobolichevilamaria.com.br/og-image.jpg" />
+
+    <!-- Google Fonts Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased selection:bg-amber-500 selection:text-black min-h-screen flex flex-col font-sans">
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,76 @@
+---
+const faqs = [
+  {
+    q: "Precisa reservar com antecedência ou é por ordem de chegada?",
+    a: "Atendemos principalmente por <strong>ordem de chegada</strong> no dia a dia, com alta rotatividade de pistas para que você não precise esperar muito. Para <strong>aniversários, confraternizações de empresas e grupos acima de 12 pessoas</strong>, disponibilizamos agendamento antecipado de pistas conjugadas e mesas pelo nosso WhatsApp!"
+  },
+  {
+    q: "O aluguel do sapato especial está incluso no valor da hora da pista?",
+    a: "O aluguel do sapato profissional especial é cobrado à parte no valor simbólico de <strong>R$ 7,00 por pessoa</strong>. Os calçados contam com sola especial para deslizamento seguro e preservação das pistas, sendo rigorosamente esterilizados a cada uso. O uso do calçado próprio de boliche é obrigatório para jogar na pista."
+  },
+  {
+    q: "Quantas pessoas podem jogar em uma mesma pista?",
+    a: "Cada pista comporta confortavelmente <strong>até 6 jogadores simultâneos</strong> com cadastro no sistema e pontuação automática no telão. Se o seu grupo tiver 7 ou mais pessoas, sugerimos abrir duas pistas lado a lado para garantir que todo mundo jogue bastante sem esperar muito pela sua vez!"
+  },
+  {
+    q: "Tem estacionamento no local ou nas proximidades?",
+    a: "Sim! A região da Avenida Guilherme Cotching conta com excelentes opções de estacionamento conveniado e vagas com fácil acesso, garantindo praticidade e segurança para você e seus acompanhantes."
+  },
+  {
+    q: "Crianças podem jogar? Há bolas mais leves e proteção?",
+    a: "Com certeza! O Novo Boliche é 100% preparado para a família. Contamos com <strong>bumpers laterais automáticos</strong> (as canaletas sobem quando a criança vai jogar, impedindo a bola de cair na vala) e bolas infantis super leves (a partir do tamanho 6). Diversão garantida para todas as idades!"
+  },
+  {
+    q: "Posso comemorar aniversário e levar bolo ou doces?",
+    a: "Sim, é muito bem-vindo! Você pode trazer o seu bolo de aniversário e docinhos para cantar os parabéns. Além disso, disponibilizamos comandas individuais para seus convidados consumirem e pagarem à parte."
+  },
+  {
+    q: "Quais são as formas de pagamento aceitas?",
+    a: "Aceitamos <strong>PIX, cartões de crédito e débito</strong> de todas as principais bandeiras (Visa, Mastercard, Elo, etc.), além de dinheiro físico."
+  }
+];
+---
+
+<section id="faq" class="py-20 bg-slate-900/60 border-t border-slate-800">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+        Tire Suas Dúvidas
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black text-white font-display">
+        Perguntas Frequentes (FAQ)
+      </h2>
+      <p class="text-sm sm:text-base text-slate-300">
+        Reunimos aqui as dúvidas mais comuns dos nossos clientes para você planejar seu rolê com total tranquilidade.
+      </p>
+    </div>
+
+    <!-- Accordion Items -->
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <details class="group rounded-2xl bg-slate-950/70 border border-slate-800 open:border-amber-500/40 open:bg-slate-900 transition-colors duration-200">
+          <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer list-none select-none font-bold text-white hover:text-amber-400 text-sm sm:text-base">
+            <span class="pr-4">{faq.q}</span>
+            <div class="w-7 h-7 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0 group-open:rotate-180 group-open:bg-amber-500 group-open:text-slate-950 transition-transform duration-200">
+              <svg class="w-4 h-4 fill-none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </summary>
+          <div class="px-5 pb-6 sm:px-6 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/60" set:html={faq.a}>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- Extra Assistance -->
+    <div class="mt-10 p-4 rounded-xl bg-slate-900 border border-slate-800 text-center text-xs text-slate-400">
+      <span>Ainda tem alguma dúvida? Fale diretamente com a equipe do balcão:</span>
+      <a href="https://wa.me/551129674220" class="text-amber-400 font-bold ml-1 hover:underline">
+        Chamar no WhatsApp (11) 2967-4220 →
+      </a>
+    </div>
+
+  </div>
+</section>

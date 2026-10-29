@@ -1,0 +1,10 @@
+{
+  "id": "sexta",
+  "dia": "Sexta-feira",
+  "funcionamento": "16h às 02h30",
+  "turnos": [
+    { "periodo": "Happy Hour (16h às 18h)", "valor": 89, "destaque": false },
+    { "periodo": "Noite (18h às 02h30)", "valor": 149, "destaque": true }
+  ],
+  "mensagemWhats": "Olá! Gostaria de reservar uma pista para Sexta-feira."
+}

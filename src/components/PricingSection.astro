@@ -1,0 +1,146 @@
+---
+import { PRICING_DATA, WHATSAPP_PHONE } from '../data/pricing';
+---
+
+<section id="precos" class="py-20 relative bg-slate-900/50 border-y border-slate-800/80">
+  <!-- Subtle background glow -->
+  <div class="absolute inset-0 bg-[radial-gradient(#f59e0b_0.75px,transparent_0.75px)] [background-size:24px_24px] opacity-10 pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    
+    <!-- Section Title & Intro -->
+    <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+        Transparência Total
+      </div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white font-display">
+        Tabela de Preços & Horários
+      </h2>
+      <p class="text-base sm:text-lg text-slate-300">
+        Sem pegadinhas ou letras miúdas. O valor da hora é por pista e comporta <strong class="text-amber-400">até 6 jogadores</strong>. Dividindo com os amigos, sai baratíssimo!
+      </p>
+    </div>
+
+    <!-- Pricing Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {PRICING_DATA.map((card) => {
+        const whatsUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(card.mensagemWhats)}`;
+        const isFeatured = card.id === "sexta" || card.id === "sabado-domingo";
+
+        return (
+          <div class={`relative rounded-3xl p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 ${
+            card.id === "sabado-domingo"
+              ? "bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950/60 border-2 border-amber-500/60 shadow-2xl shadow-amber-500/10"
+              : "bg-slate-900/90 border border-slate-800 shadow-xl hover:border-slate-700"
+          }`}>
+            
+            {/* Top Badge */}
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
+                {card.badge}
+              </span>
+              {card.id === "sabado-domingo" && (
+                <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-500 text-slate-950">
+                  Mais Popular
+                </span>
+              )}
+            </div>
+
+            <!-- Day & Opening Hours -->
+            <div>
+              <h3 class="text-2xl font-black text-white font-display">
+                {card.dia}
+              </h3>
+              <p class="text-xs text-slate-400 mt-1 flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Horário: <strong>{card.funcionamento}</strong></span>
+              </p>
+
+              <!-- Turnos / Rates Breakdown -->
+              <div class="mt-6 space-y-3">
+                {card.turnos.map((turno) => (
+                  <div class={`p-4 rounded-2xl border transition-all ${
+                    turno.destaque 
+                      ? "bg-slate-850 border-amber-500/40 shadow-sm" 
+                      : "bg-slate-950/50 border-slate-800/80"
+                  }`}>
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs sm:text-sm font-semibold text-slate-200">
+                        {turno.periodo}
+                      </span>
+                      {turno.destaque && (
+                        <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-amber-500/20 text-amber-400">
+                          Horário Nobre
+                        </span>
+                      )}
+                    </div>
+                    <div class="mt-2 flex items-baseline gap-1">
+                      <span class="text-xs text-slate-400">R$</span>
+                      <span class="text-3xl font-black text-white font-display">
+                        {turno.valor}
+                      </span>
+                      <span class="text-xs text-slate-400 font-medium">/ hora da pista</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Quick Info / Per Person Preview -->
+              <div class="mt-5 p-3 rounded-xl bg-slate-950/60 border border-slate-800/70 text-xs text-slate-300 space-y-1">
+                <div class="flex justify-between items-center text-slate-400">
+                  <span>Capacidade:</span>
+                  <span class="text-white font-semibold">Até 6 pessoas / pista</span>
+                </div>
+                <div class="flex justify-between items-center text-slate-400">
+                  <span>Aluguel do sapato especial:</span>
+                  <span class="text-amber-400 font-semibold">R$ 7,00 (par)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- WhatsApp Action Button -->
+            <div class="mt-7">
+              <a 
+                href={whatsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={`w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl text-sm font-bold transition-all duration-200 ${
+                  card.id === "sabado-domingo"
+                    ? "bg-amber-400 hover:bg-amber-300 text-slate-950 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/35"
+                    : "bg-slate-800 hover:bg-amber-400 hover:text-slate-950 text-white border border-slate-700"
+                }`}
+              >
+                <!-- WhatsApp Icon -->
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.58 1.968.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.449.741.964 1.2 201 1.028 1.139 1.192 1.312.087.058.174.043.245-.043.072-.087.318-.376.405-.506.086-.13.173-.101.289-.058.116.043.737.347.864.411.127.064.212.096.242.149.03.053.03.31-.114.715z"/>
+                </svg>
+                <span>Reservar para {card.dia.split(" ")[0]}</span>
+              </a>
+            </div>
+
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Transparent Info Footnote -->
+    <div class="mt-12 text-center text-xs text-slate-400 max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4">
+      <span class="flex items-center gap-1.5">
+        <svg class="w-4 h-4 text-emerald-400 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        Cobrança justa calculada por fração de tempo
+      </span>
+      <span class="hidden sm:inline text-slate-700">•</span>
+      <span class="flex items-center gap-1.5">
+        <svg class="w-4 h-4 text-emerald-400 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        Sapatos esterilizados com meia descartável disponível
+      </span>
+    </div>
+
+  </div>
+</section>
