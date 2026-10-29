@@ -4,32 +4,31 @@ export default {
   theme: {
     extend: {
       colors: {
+        paper: {
+          50: '#fdfdfc',
+          100: '#faf9f5',
+          200: '#f4f3ed',
+          300: '#e8e6dc',
+        },
         brand: {
-          dark: '#030712',
-          card: '#0f172a',
-          border: '#1e293b',
+          yellow: '#facc15',
           amber: '#f59e0b',
-          neon: '#ff3366',
-          cyan: '#06b6d4',
-          gold: '#fbbf24',
+          dark: '#18181b',
+          subtle: '#71717a',
+          coral: '#f43f5e',
         },
       },
       fontFamily: {
-        sans: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
-        display: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['Caprasimo', 'Fraunces', 'serif'],
+        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        'neon-amber': '0 0 25px -5px rgba(245, 158, 11, 0.4)',
-        'neon-red': '0 0 25px -5px rgba(255, 51, 102, 0.4)',
+        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+        'float': '0 20px 40px -15px rgba(0, 0, 0, 0.08)',
       },
-      keyframes: {
-        pulseGlow: {
-          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
-          '50%': { opacity: '0.8', transform: 'scale(1.03)' },
-        },
-      },
-      animation: {
-        'pulse-glow': 'pulseGlow 2.5s ease-in-out infinite',
+      borderRadius: {
+        '3xl': '24px',
+        '4xl': '32px',
       },
     },
   },

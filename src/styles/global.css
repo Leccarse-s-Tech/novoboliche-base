@@ -5,11 +5,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   }
 
   body {
-    background-color: #030712;
-    color: #f8fafc;
+    background-color: #faf9f5;
+    color: #18181b;
   }
 }

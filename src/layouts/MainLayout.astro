@@ -7,7 +7,7 @@ interface Props {
 }
 
 const {
-  title = "Novo Boliche Vila Maria | Pistas Profissionais, Bar & Gastronomia na Zona Norte SP",
+  title = "Novo Boliche Vila Maria | Boliche & Bar na Zona Norte de São Paulo",
   description = "Venha se divertir no Novo Boliche Vila Maria na Zona Norte de SP! Pistas automáticas, porções especiais, chopp gelado, pacotes para aniversários e confraternizações. Confira horários e reserve sua pista!",
 } = Astro.props;
 
@@ -66,7 +66,7 @@ const schemaData = {
 ---
 
 <!doctype html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR" class="scroll-smooth bg-[#faf9f5]">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -93,15 +93,15 @@ const schemaData = {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content="https://novobolichevilamaria.com.br/og-image.jpg" />
 
-    <!-- Google Fonts Outfit & Inter -->
+    <!-- Google Fonts Caprasimo & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
   </head>
-  <body class="bg-slate-950 text-slate-100 antialiased selection:bg-amber-500 selection:text-black min-h-screen flex flex-col font-sans">
+  <body class="bg-[#faf9f5] text-[#18181b] antialiased selection:bg-amber-300 selection:text-black min-h-screen flex flex-col font-sans">
     <slot />
   </body>
 </html>

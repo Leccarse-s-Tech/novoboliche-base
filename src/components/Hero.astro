@@ -1,178 +1,123 @@
 ---
+import { Image } from 'astro:assets';
+import mainPhoto from '../content/img/main-photo.jpg';
 import { WHATSAPP_PHONE } from '../data/pricing';
 
 const heroWhatsUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent("Olá! Gostaria de reservar uma pista no Novo Boliche Vila Maria.")}`;
 ---
 
-<section class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-32">
-  <!-- Glowing Background Effects -->
-  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-gradient-to-tr from-amber-500/20 via-rose-600/15 to-indigo-600/20 blur-[130px] rounded-full pointer-events-none -z-10"></div>
-  <div class="absolute -top-10 right-10 w-72 h-72 bg-amber-500/10 blur-[90px] rounded-full pointer-events-none -z-10"></div>
-
+<section class="pt-6 pb-16 sm:pt-10 sm:pb-24 overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    
+    <!-- Big Headline exactly like "Our Blooms®" in the reference -->
+    <div class="flex flex-col sm:flex-row items-baseline justify-between mb-4 sm:mb-6">
+      <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-[112px] font-black tracking-tight text-[#18181b] font-display leading-[0.95]">
+        Novo Boliche<span class="text-3xl sm:text-5xl md:text-6xl align-super font-bold ml-1 text-zinc-900">®</span>
+      </h1>
+      <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-zinc-500 mt-2 sm:mt-0 font-sans">
+        São Paulo • Desde 1998
+      </span>
+    </div>
+
+    <!-- Framed Visual Hero Card with Rounded Corners -->
+    <div class="relative w-full rounded-2xl sm:rounded-3xl lg:rounded-[36px] overflow-hidden bg-zinc-200 border border-zinc-200/80 shadow-float">
       
-      <!-- Text / Copy Column -->
-      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+      <!-- Main Photo from src/content/img -->
+      <div class="relative aspect-[16/10] sm:aspect-[16/8] lg:aspect-[21/10] w-full overflow-hidden">
+        <Image 
+          src={mainPhoto} 
+          alt="Pistas e Ambiente do Novo Boliche Vila Maria" 
+          class="w-full h-full object-cover object-center transform hover:scale-102 transition-transform duration-700"
+          priority
+        />
         
-        <!-- Local Badge -->
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-semibold tracking-wide shadow-inner">
-          <span class="inline-block w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-          <span>Zona Norte de São Paulo • Vila Maria</span>
-        </div>
+        <!-- Subtle warm overlay for editorial depth -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
 
-        <!-- H1 Optimized for Local SEO -->
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white font-display leading-[1.1]">
-          O Boliche Mais Completo da <br class="hidden sm:inline" />
-          <span class="bg-gradient-to-r from-amber-400 via-rose-500 to-amber-300 bg-clip-text text-transparent">
-            Zona Norte de SP
-          </span>
-        </h1>
-
-        <!-- Subtitle & Value Proposition -->
-        <p class="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-          Pistas profissionais com pontuação 100% automatizada, gastronomia premiada, chopp estupidamente gelado e o ambiente perfeito para reunir os amigos, a família ou comemorar seu aniversário!
-        </p>
-
-        <!-- CTA Action Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-          <a 
-            href={heroWhatsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-base font-bold text-slate-950 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
-          >
-            <!-- WhatsApp Icon -->
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        <!-- Yellow Scalloped Sunburst Sticker (Exact match to the reference "NEW 10% Off Your First Order SPECIAL") -->
+        <div class="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 z-20 group hover:scale-105 transition-transform duration-300">
+          <div class="relative w-28 h-28 sm:w-36 sm:h-36 flex items-center justify-center">
+            <!-- 24-point Scalloped Starburst SVG -->
+            <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-md">
+              <path 
+                d="M50 0 L55 6 L63 3 L66 11 L75 10 L76 18 L85 20 L83 28 L92 32 L88 40 L97 46 L91 53 L98 60 L91 66 L95 74 L87 78 L88 86 L80 88 L77 96 L69 95 L64 100 L58 97 L50 100 L42 97 L36 100 L31 95 L23 96 L20 88 L12 86 L13 78 L5 74 L9 66 L2 60 L9 53 L3 46 L12 40 L8 32 L17 28 L15 20 L24 18 L25 10 L34 11 L37 3 L45 6 Z" 
+                fill="#facc15" 
+              />
             </svg>
-            <span>Reservar Minha Pista</span>
-          </a>
-
-          <a 
-            href="#precos" 
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-base font-semibold text-slate-200 bg-slate-900/90 border border-slate-700/80 hover:border-amber-400/60 hover:text-white hover:bg-slate-850 transition-all duration-200"
-          >
-            <span>Ver Preços & Horários</span>
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </a>
-        </div>
-
-        <!-- Trust Badges List -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-800/80">
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <div class="text-left">
-              <p class="text-xs font-bold text-white leading-tight">12 Pistas</p>
-              <p class="text-[11px] text-slate-400">Automáticas</p>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <div class="text-left">
-              <p class="text-xs font-bold text-white leading-tight">Telões HD</p>
-              <p class="text-[11px] text-slate-400">Pontos em tempo real</p>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <div class="text-left">
-              <p class="text-xs font-bold text-white leading-tight">Bar & Cozinha</p>
-              <p class="text-[11px] text-slate-400">Porções & Pizzas</p>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <div class="text-left">
-              <p class="text-xs font-bold text-white leading-tight">Para Crianças</p>
-              <p class="text-[11px] text-slate-400">Bumpers de proteção</p>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-2 text-zinc-950 leading-none select-none pointer-events-none">
+              <span class="text-[8px] sm:text-[9px] tracking-widest uppercase font-extrabold opacity-75">NOVO</span>
+              <span class="text-[11px] sm:text-xs font-black uppercase tracking-tight mt-0.5">Happy Hour</span>
+              <span class="text-xs sm:text-base font-black text-rose-600 mt-0.5">R$ 89/h</span>
+              <span class="text-[8px] sm:text-[9px] uppercase tracking-widest font-extrabold opacity-75 mt-0.5">ESPECIAL</span>
             </div>
           </div>
         </div>
 
-      </div>
-
-      <!-- Visual Showcase Card -->
-      <div class="lg:col-span-5 relative">
-        <div class="relative mx-auto max-w-md lg:max-w-none">
-          <!-- Ambient Glow Border -->
-          <div class="absolute -inset-1.5 bg-gradient-to-r from-amber-500 via-rose-500 to-indigo-600 rounded-3xl blur-lg opacity-40 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-glow"></div>
-          
-          <div class="relative rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-2xl overflow-hidden space-y-5">
-            
-            <!-- Bowling Neon Banner Header -->
-            <div class="relative h-56 rounded-xl overflow-hidden bg-gradient-to-br from-indigo-950 via-slate-900 to-rose-950 flex flex-col justify-end p-6 border border-slate-800">
-              <!-- Visual Pattern Decorator -->
-              <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:16px_16px]"></div>
-              
-              <!-- Neon Pins Graphic -->
-              <div class="absolute top-4 right-4 flex gap-1.5 opacity-80">
-                <span class="w-3 h-9 bg-amber-400 rounded-full shadow-[0_0_12px_#f59e0b] transform rotate-12"></span>
-                <span class="w-3 h-11 bg-rose-500 rounded-full shadow-[0_0_12px_#ff3366]"></span>
-                <span class="w-3 h-9 bg-amber-400 rounded-full shadow-[0_0_12px_#f59e0b] transform -rotate-12"></span>
-              </div>
-
-              <div class="relative z-10">
-                <span class="px-2.5 py-1 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-bold uppercase tracking-wider">
-                  Experiência Premium
-                </span>
-                <h3 class="text-2xl font-black text-white mt-2 font-display">
-                  Noite das Pistas Neon
-                </h3>
-                <p class="text-xs text-slate-300 mt-1">
-                  Música boa, luz negra, porções e muita diversão com os amigos!
-                </p>
-              </div>
-            </div>
-
-            <!-- Quick Snapshot Info Box -->
-            <div class="grid grid-cols-2 gap-3">
-              <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800/80">
-                <span class="text-[11px] text-slate-400 font-medium uppercase tracking-wider block">Até 6 Pessoas</span>
-                <span class="text-lg font-bold text-white">Por Pista</span>
-                <span class="text-xs text-emerald-400 block mt-0.5">Divida o valor entre a galera</span>
-              </div>
-
-              <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800/80">
-                <span class="text-[11px] text-slate-400 font-medium uppercase tracking-wider block">Happy Hour</span>
-                <span class="text-lg font-bold text-amber-400">A partir de R$ 89/h</span>
-                <span class="text-xs text-slate-400 block mt-0.5">Ter a Sex das 16h às 18h</span>
-              </div>
-            </div>
-
-            <!-- Mini Review Highlight -->
-            <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-850/80 border border-slate-800 text-xs text-slate-300">
-              <div class="flex text-amber-400">
-                {"★★★★★"}
-              </div>
-              <span>"Melhor boliche de SP! Pistas lisinhas e lanches excelentes."</span>
-            </div>
-
-          </div>
+        <!-- Floating Tag inside Photo -->
+        <div class="absolute top-4 right-4 sm:top-6 sm:right-6 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-bold text-zinc-900 border border-white/60 shadow-sm flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span>12 Pistas Automáticas & Bar</span>
         </div>
+
       </div>
 
     </div>
+
+    <!-- Editorial Subtitle & Actions Bar -->
+    <div class="mt-8 sm:mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <div class="lg:col-span-7 space-y-4">
+        <p class="text-xl sm:text-2xl text-zinc-800 font-medium leading-relaxed font-sans">
+          O ponto de encontro mais autêntico da <strong>Zona Norte de São Paulo</strong>. Boliche profissional, porções de boteco feitas na hora, chopp trincando e o clima perfeito para curtir com a galera.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-6 pt-2 text-xs font-semibold uppercase tracking-wider text-zinc-500">
+          <span class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-zinc-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            Até 6 pessoas por pista
+          </span>
+          <span class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-zinc-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            Bumpers para crianças
+          </span>
+          <span class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-zinc-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            Comandas individuais
+          </span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end lg:items-end">
+        <a 
+          href={heroWhatsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-bold text-sm text-zinc-950 bg-yellow-400 hover:bg-yellow-300 border border-yellow-500/50 shadow-md transition-all hover:scale-102 active:scale-98"
+        >
+          <span>Reservar Pista pelo WhatsApp</span>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.58 1.968.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.449.741.964 1.2 201 1.028 1.139 1.192 1.312.087.058.174.043.245-.043.072-.087.318-.376.405-.506.086-.13.173-.101.289-.058.116.043.737.347.864.411.127.064.212.096.242.149.03.053.03.31-.114.715z"/>
+          </svg>
+        </a>
+
+        <a 
+          href="#precos"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-xs text-zinc-700 bg-white hover:bg-zinc-100 border border-zinc-300 transition-colors"
+        >
+          <span>Consultar Tabela de Horários</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+      </div>
+
+    </div>
+
   </div>
 </section>

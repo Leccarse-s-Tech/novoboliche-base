@@ -5,103 +5,82 @@ const birthdayWhatsUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURICompon
 const corporateWhatsUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent("Olá! Gostaria de informações sobre eventos corporativos e confraternizações no Novo Boliche.")}`;
 ---
 
-<section id="aniversarios" class="py-20 relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border-t border-slate-800">
+<section id="aniversarios" class="py-20 bg-[#faf9f5] border-t border-zinc-200">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="rounded-3xl bg-gradient-to-r from-rose-950/40 via-slate-900 to-amber-950/30 border border-rose-500/30 p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
-      
-      <!-- Ambient light effect -->
-      <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-rose-500/10 blur-[100px] rounded-full pointer-events-none"></div>
-
+    <div class="rounded-3xl bg-white border border-zinc-200/90 p-8 sm:p-12 lg:p-16 shadow-soft">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         
-        <!-- Left Column: Copy & Benefits -->
+        <!-- Left: Copy & Perks -->
         <div class="lg:col-span-7 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/20 border border-rose-500/30 text-rose-400 text-xs font-bold uppercase tracking-wider">
-            🎉 Festas & Confraternizações
+          <div class="inline-block text-xs font-bold uppercase tracking-widest text-zinc-500">
+            🎉 Comemorações & Eventos
           </div>
 
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white font-display leading-tight">
-            Comemore seu Aniversário no <span class="bg-gradient-to-r from-rose-400 to-amber-400 bg-clip-text text-transparent">Novo Boliche</span>
+          <h2 class="text-4xl sm:text-5xl font-black text-zinc-950 font-display tracking-tight leading-tight">
+            Comemore seu Aniversário no Novo Boliche
           </h2>
 
-          <p class="text-base sm:text-lg text-slate-300">
-            A comemoração que todo mundo adora! Sem estresse na hora de pagar a conta, com pistas lado a lado e cardápio completo de comida de boteco, pizzas quentinhas e drinks especiais.
+          <p class="text-base sm:text-lg text-zinc-600 font-sans leading-relaxed">
+            A comemoração favorita de todas as idades! Pistas lado a lado, comanda individual para cada convidado não ter dor de cabeça na hora da conta, e o melhor da comida de boteco.
           </p>
 
-          <!-- Advantages Grid -->
+          <!-- Perks Grid -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
             
-            <div class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800/80">
-              <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-2.5">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                </svg>
-              </div>
-              <h4 class="text-white font-bold text-sm">Comanda Individual</h4>
-              <p class="text-xs text-slate-400 mt-1">
-                Cada convidado consome e paga sua própria comanda sem confusão ou divisão complicada no final da festa.
+            <div class="p-5 rounded-2xl bg-[#faf9f5] border border-zinc-200">
+              <span class="text-lg mb-1 block">💳</span>
+              <h4 class="text-zinc-950 font-bold text-sm">Comanda Individual</h4>
+              <p class="text-xs text-zinc-600 mt-1">
+                Cada amigo consome e paga o que pedir direto no caixa, sem divisão complicada de conta.
               </p>
             </div>
 
-            <div class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800/80">
-              <div class="w-9 h-9 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 mb-2.5">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
-              <h4 class="text-white font-bold text-sm">Pistas Lado a Lado</h4>
-              <p class="text-xs text-slate-400 mt-1">
-                Para grupos grandes, reservamos pistas conjugadas com mesas de apoio para todos ficarem juntos.
+            <div class="p-5 rounded-2xl bg-[#faf9f5] border border-zinc-200">
+              <span class="text-lg mb-1 block">🎳</span>
+              <h4 class="text-zinc-950 font-bold text-sm">Pistas Conjugadas</h4>
+              <p class="text-xs text-zinc-600 mt-1">
+                Para grupos grandes, organizamos pistas vizinhas com mesas centrais para a turma ficar junta.
               </p>
             </div>
 
-            <div class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800/80">
-              <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-2.5">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z" />
-                </svg>
-              </div>
-              <h4 class="text-white font-bold text-sm">Traga seu Bolo & Doces</h4>
-              <p class="text-xs text-slate-400 mt-1">
-                Fique à vontade para trazer o bolo de aniversário e cantar os parabéns com sua galera!
+            <div class="p-5 rounded-2xl bg-[#faf9f5] border border-zinc-200">
+              <span class="text-lg mb-1 block">🎂</span>
+              <h4 class="text-zinc-950 font-bold text-sm">Bolo & Parabéns</h4>
+              <p class="text-xs text-zinc-600 mt-1">
+                Traga o bolo e docinhos do aniversariante! Fornecemos os pratinhos para cantar os parabéns.
               </p>
             </div>
 
-            <div class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800/80">
-              <div class="w-9 h-9 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 mb-2.5">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h4 class="text-white font-bold text-sm">Eventos de Empresas</h4>
-              <p class="text-xs text-slate-400 mt-1">
-                Pacotes corporativos sob medida para dinâmicas de equipe, integração e confraternizações de fim de ano.
+            <div class="p-5 rounded-2xl bg-[#faf9f5] border border-zinc-200">
+              <span class="text-lg mb-1 block">👔</span>
+              <h4 class="text-zinc-950 font-bold text-sm">Empresas & Confraternizações</h4>
+              <p class="text-xs text-zinc-600 mt-1">
+                Pacotes corporativos para integração de equipes e encerramento de ano.
               </p>
             </div>
 
           </div>
 
-          <!-- Direct WhatsApp Button -->
+          <!-- Buttons -->
           <div class="pt-4 flex flex-col sm:flex-row gap-4">
             <a 
               href={birthdayWhatsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-xl shadow-amber-500/25 transition-all duration-200"
+              class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-bold text-xs uppercase tracking-wider text-zinc-950 bg-yellow-400 hover:bg-yellow-300 border border-yellow-500/40 shadow-sm transition-all"
             >
-              <!-- WhatsApp Icon -->
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <span>Quero Comemorar Meu Aniversário</span>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.58 1.968.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.449.741.964 1.2 201 1.028 1.139 1.192 1.312.087.058.174.043.245-.043.072-.087.318-.376.405-.506.086-.13.173-.101.289-.058.116.043.737.347.864.411.127.064.212.096.242.149.03.053.03.31-.114.715z"/>
               </svg>
-              <span>Quero Comemorar Meu Aniversário</span>
             </a>
 
             <a 
               href={corporateWhatsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-semibold text-slate-300 bg-slate-950/80 border border-slate-700 hover:border-slate-500 hover:text-white transition-all duration-200"
+              class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-bold text-xs uppercase tracking-wider text-zinc-700 bg-white border border-zinc-300 hover:bg-zinc-100 transition-all"
             >
               <span>Pacotes Corporativos</span>
             </a>
@@ -109,39 +88,38 @@ const corporateWhatsUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURICompo
 
         </div>
 
-        <!-- Right Column: Visual Box -->
+        <!-- Right: Tip Card -->
         <div class="lg:col-span-5">
-          <div class="rounded-2xl bg-slate-950/90 border border-slate-800 p-6 sm:p-8 space-y-6">
-            <h3 class="text-xl font-bold text-white font-display flex items-center gap-2">
-              <span class="text-amber-400">★</span> Dúvidas sobre Festas?
+          <div class="rounded-2xl bg-[#faf9f5] border border-zinc-200 p-6 sm:p-8 space-y-5">
+            <h3 class="text-xl font-bold text-zinc-950 font-display">
+              Informações Rápidas
             </h3>
 
-            <div class="space-y-4 text-xs sm:text-sm text-slate-300">
+            <div class="space-y-4 text-xs sm:text-sm text-zinc-700">
               <div class="flex gap-3">
-                <span class="text-rose-400 font-bold">1.</span>
-                <p><strong>Com antecedência:</strong> Recomendamos agendar reservas de grupos com pelo menos 3 a 5 dias de antecedência para garantir as pistas desejadas.</p>
+                <span class="font-bold text-zinc-950">•</span>
+                <p><strong>Antecedência:</strong> Recomendamos agendar com 3 a 5 dias de antecedência para garantir pistas nos horários de maior procura.</p>
               </div>
 
               <div class="flex gap-3">
-                <span class="text-rose-400 font-bold">2.</span>
-                <p><strong>Decoração:</strong> Você pode trazer balões e itens de mesa para deixar seu espaço personalizado.</p>
+                <span class="font-bold text-zinc-950">•</span>
+                <p><strong>Decoração:</strong> Você pode trazer balões e toalhas para deixar sua mesa no clima da comemoração.</p>
               </div>
 
               <div class="flex gap-3">
-                <span class="text-rose-400 font-bold">3.</span>
-                <p><strong>Espaço Kids & Bumpers:</strong> Crianças jogam sem frustração! Os bumpers automáticos sobem apenas na vez dos pequenos.</p>
+                <span class="font-bold text-zinc-950">•</span>
+                <p><strong>Bumpers para Crianças:</strong> As canaletas sobem automaticamente na vez dos pequenos para todos pontuarem!</p>
               </div>
             </div>
 
-            <div class="pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
-              <span>Atendimento Direto:</span>
-              <a href="tel:+551129674220" class="text-amber-400 font-bold hover:underline">(11) 2967-4220</a>
+            <div class="pt-4 border-t border-zinc-200 flex items-center justify-between text-xs text-zinc-500 font-semibold">
+              <span>Contato Direto:</span>
+              <a href="tel:+551129674220" class="text-zinc-950 font-bold hover:underline">(11) 2967-4220</a>
             </div>
           </div>
         </div>
 
       </div>
-
     </div>
 
   </div>
