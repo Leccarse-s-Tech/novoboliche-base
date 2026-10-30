@@ -3,62 +3,60 @@ import MainLayout from '../layouts/MainLayout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import PricingSection from '../components/PricingSection.astro';
-import PriceCalculator from '../components/PriceCalculator.jsx';
+import ReviewsSection from '../components/ReviewsSection.astro';
+import MenuTeaserSection from '../components/MenuTeaserSection.astro';
 import BirthdayPackages from '../components/BirthdayPackages.astro';
-import MenuHighlights from '../components/MenuHighlights.astro';
-import FaqAccordion from '../components/FaqAccordion.astro';
 import LocationMap from '../components/LocationMap.astro';
 import Footer from '../components/Footer.astro';
-import { WHATSAPP_PHONE } from '../data/pricing';
+import { createWhatsAppUrl } from '../data/pricing';
 
-const floatingWhatsUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent("Olá! Estou no site do Novo Boliche Vila Maria e gostaria de tirar uma dúvida.")}`;
+const floatingWhatsUrl = createWhatsAppUrl("Olá! Vim pelo site do Novo Boliche e gostaria de tirar uma dúvida.");
 ---
 
 <MainLayout>
-  <!-- Clean Header -->
+  <!-- Fixed Header with Pin-Stripe Double Border & Official Logo -->
   <Header />
 
-  <main class="flex-1">
-    <!-- Hero Section (Clean Editorial style with Big Title & Framed Card) -->
+  <main class="flex-1 pb-16 sm:pb-0">
+    <!-- Hero Section (Experiência Inclusiva, Tradição & Placar Técnico) -->
     <Hero />
 
-    <!-- Pricing Section (Transparent Rates) -->
+    <!-- Google Maps Reviews & Authority Section (#avaliacoes / Social Proof logo após Experiência) -->
+    <ReviewsSection />
+
+    <!-- Official Pricing Table by Day & Shift (#horarios: Claro, Acolhedor e Alto Contraste) -->
     <PricingSection />
 
-    <!-- Interactive Price Per Person Calculator (Astro Island) -->
-    <PriceCalculator client:visible />
+    <!-- Gastronomia & Bar Completo com Destaque para o Cardápio Virtual (/cardapio) -->
+    <MenuTeaserSection />
 
-    <!-- Gastronomy & Bar Showcase -->
-    <MenuHighlights />
-
-    <!-- Birthday & Events Section -->
+    <!-- Birthdays & Corporate Events (#eventos) -->
     <BirthdayPackages />
 
-    <!-- FAQ Accordion -->
-    <FaqAccordion />
-
-    <!-- Location & Direct Map Routes -->
+    <!-- Map, GPS Route Buttons & Location (#localizacao) -->
     <LocationMap />
   </main>
 
   <!-- Complete Business Footer -->
   <Footer />
 
-  <!-- Floating Mobile WhatsApp Quick Button -->
-  <a 
-    href={floatingWhatsUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Falar no WhatsApp"
-    class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-yellow-400 hover:bg-yellow-300 text-zinc-950 border border-yellow-500/50 shadow-float hover:scale-110 active:scale-95 transition-all duration-300 group"
-  >
-    <span class="sr-only">Falar no WhatsApp</span>
-    <span class="absolute -top-1 -right-1 flex h-3.5 w-3.5">
-      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
-      <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-yellow-500 border border-white"></span>
-    </span>
-    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
-      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.58 1.968.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.449.741.964 1.2 201 1.028 1.139 1.192 1.312.087.058.174.043.245-.043.072-.087.318-.376.405-.506.086-.13.173-.101.289-.058.116.043.737.347.864.411.127.064.212.096.242.149.03.053.03.31-.114.715z"/>
-    </svg>
-  </a>
+  <!-- Floating Mobile WhatsApp Quick Button (Thumb accessible, 100% WhatsApp Conversion) -->
+  <aside class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
+    <a 
+      href={floatingWhatsUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Falar com o Novo Boliche no WhatsApp"
+      class="inline-flex items-center gap-2.5 px-4 py-3 sm:px-5 sm:py-3.5 rounded-full bg-[#168B42] hover:bg-[#127236] text-white font-bold text-xs sm:text-sm border-2 border-white/40 shadow-[4px_4px_0px_#181412] hover:scale-105 active:scale-95 transition-all duration-200 group"
+    >
+      <span class="relative flex h-2.5 w-2.5 shrink-0">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
+      </span>
+      <span class="font-display uppercase tracking-wider">WhatsApp</span>
+      <svg class="w-6 h-6 fill-current shrink-0 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.58 1.968.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.449.741.964 1.2 201 1.028 1.139 1.192 1.312.087.058.174.043.245-.043.072-.087.318-.376.405-.506.086-.13.173-.101.289-.058.116.043.737.347.864.411.127.064.212.096.242.149.03.053.03.31-.114.715z"/>
+      </svg>
+    </a>
+  </aside>
 </MainLayout>

@@ -1,0 +1,310 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Logo from '../components/Logo.astro';
+import { MENU_CATEGORIES } from '../data/menu';
+import { createWhatsAppUrl } from '../data/pricing';
+
+const attendantWhatsUrl = createWhatsAppUrl("Olá! Estou no Novo Boliche e gostaria de chamar um atendente / tirar uma dúvida.");
+---
+
+<MainLayout 
+  title="Cardápio Virtual Oficial — Novo Boliche Vila Maria"
+  description="Cardápio digital oficial para consulta nas mesas e pistas do Novo Boliche Vila Maria. Pizzas artesanais, lanches, porções, chopp e bebidas."
+>
+  <!-- Dedicated Compact Top Header for Fast Mobile Loading & QR Access -->
+  <header class="sticky top-0 z-50 bg-[#FAF6EE]/95 backdrop-blur-md pin-stripe-header-border border-b-2 border-[#181412]">
+    <div class="max-w-[1380px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-24 sm:h-28">
+        
+        <!-- Left: Logo + Back to Home -->
+        <div class="flex items-center gap-4 sm:gap-6">
+          <a href="/" class="flex items-center py-2 transition-transform hover:scale-[1.02]" aria-label="Voltar para a Página Inicial">
+            <Logo className="h-16 sm:h-20 lg:h-[84px] w-auto object-contain" />
+          </a>
+          <a 
+            href="/" 
+            class="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold font-mono text-[#524842] hover:text-[#C41E14] px-3 py-1.5 rounded-lg border border-[#181412]/20 hover:border-[#C41E14] transition-colors"
+          >
+            <svg class="w-4 h-4 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <span>Voltar ao Início</span>
+          </a>
+        </div>
+
+        <!-- Right: Call Attendant / WhatsApp -->
+        <div class="flex items-center gap-3">
+          <a 
+            href={attendantWhatsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2.5 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#168B42] hover:bg-[#127236] border-[1.5px] border-[#0E5A2B] shadow-[2px_2px_0px_#181412] transition-all hover:scale-105 active:scale-95 group"
+          >
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+            </span>
+            <span>Chamar Atendente</span>
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current shrink-0 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.58 1.968.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.449.741.964 1.2 201 1.028 1.139 1.192 1.312.087.058.174.043.245-.043.072-.087.318-.376.405-.506.086-.13.173-.101.289-.058.116.043.737.347.864.411.127.064.212.096.242.149.03.053.03.31-.114.715z"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main class="bg-[#FAF6EE] min-h-screen pb-24">
+    <!-- QR Code Welcome Banner -->
+    <div class="bg-[#F4EFE6] border-b-2 border-[#181412] py-8 sm:py-10">
+      <div class="max-w-[1380px] w-full mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+
+        <h1 class="text-2xl sm:text-4xl font-extrabold font-display uppercase tracking-tight text-[#181412]">
+          Cardápio Oficial de Pista & Bar
+        </h1>
+        <p class="text-xs sm:text-sm text-[#524842] max-w-xl mx-auto">
+          Consulte itens, códigos e valores atualizados. Faça o seu pedido diretamente ao atendente na sua mesa.
+        </p>
+      </div>
+    </div>
+
+    <!-- Sticky Filters & Instant Search Bar -->
+    <div class="sticky top-[80px] sm:top-[96px] z-40 bg-[#FAF6EE]/95 backdrop-blur-md border-b-2 border-[#181412] py-3 shadow-sm">
+      <div class="max-w-[1380px] w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
+        
+        <!-- Live Instant Search Bar -->
+        <div class="relative w-full">
+          <input 
+            type="text" 
+            id="qr-search-input"
+            placeholder="Buscar por código (#006) ou nome (Chopp, Calabresa, X-Tudo)..."
+            aria-label="Buscar no cardápio virtual"
+            class="w-full bg-white border-2 border-[#181412] rounded-xl px-4 py-2.5 pl-10 text-xs sm:text-sm text-[#181412] placeholder-[#524842]/70 focus:outline-none focus:ring-2 focus:ring-[#C41E14] shadow-[2px_2px_0px_#181412]"
+          />
+          <svg class="w-4 h-4 text-[#524842] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+
+        <!-- Easy-Touch Category Pills -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-1" id="qr-tabs-container">
+          <button
+            type="button"
+            data-cat-id="all"
+            class="qr-tab-btn whitespace-nowrap px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all border-2 border-[#181412] bg-[#C41E14] text-white shadow-[2px_2px_0px_#181412] active-tab shrink-0"
+          >
+            Todos os Itens
+          </button>
+          {MENU_CATEGORIES.map((cat) => (
+            <button
+              type="button"
+              data-cat-id={cat.id}
+              class="qr-tab-btn whitespace-nowrap px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all border-2 border-[#181412] bg-white text-[#181412] shadow-[2px_2px_0px_#181412] hover:bg-[#F4EFE6] shrink-0"
+            >
+              {cat.shortTitle}
+            </button>
+          ))}
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Items List / Table View (Ultra Clean & Responsive) -->
+    <div class="max-w-[1380px] w-full mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-10">
+      
+      {MENU_CATEGORIES.map((category) => (
+        <section 
+          id={`category-group-${category.id}`} 
+          class="qr-category-group space-y-5"
+          data-cat-id={category.id}
+        >
+          <!-- Category Title Header -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-2 border-b-2 border-[#181412]">
+            <div class="flex items-center gap-2.5">
+              <span class="w-3 h-3 rounded-full bg-[#C41E14] inline-block"></span>
+              <h2 class="text-xl sm:text-2xl font-black font-display uppercase tracking-tight text-[#181412]">
+                {category.title}
+              </h2>
+            </div>
+          </div>
+
+          <!-- Category Banner (if applicable, e.g. Pizzas) -->
+          {category.banner && (
+            <div class="p-3.5 sm:p-4 rounded-xl bg-white border-2 border-[#181412] shadow-[3px_3px_0px_#181412] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+              <span class="font-display font-black text-xs sm:text-sm uppercase tracking-wide text-[#C41E14]">
+                ★ {category.banner.title}
+              </span>
+              <span class="font-mono font-bold text-xs text-[#181412] tabular-numbers">
+                {category.banner.description}
+              </span>
+            </div>
+          )}
+
+          <!-- Items Grid: 2 cols on mobile / 3 cols on tablet / 4 cols on desktop -->
+          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4">
+            {category.items.map((item) => (
+              <div 
+                class="qr-menu-item bg-white border-2 border-[#181412] rounded-xl p-4 shadow-[3px_3px_0px_#181412] flex flex-col justify-between transition-all hover:border-[#C41E14]"
+                data-name={item.name.toLowerCase()}
+                data-code={item.code.toLowerCase()}
+                data-desc={(item.description || '').toLowerCase()}
+                data-cat={category.id}
+              >
+                <div>
+                  <!-- Header row: Code + SubCategory -->
+                  <div class="flex items-center justify-between gap-2 mb-1.5">
+                    <span class="font-mono font-bold text-xs px-2 py-0.5 rounded bg-[#FAF6EE] text-[#181412] border border-[#181412] tabular-numbers">
+                      #{item.code}
+                    </span>
+                    {item.subCategory && (
+                      <span class="text-[10px] font-mono text-[#786F66] uppercase font-bold">
+                        {item.subCategory}
+                      </span>
+                    )}
+                  </div>
+
+                  <!-- Item Name -->
+                  <h3 class="text-base font-extrabold text-[#181412] font-display tracking-tight leading-snug">
+                    {item.name}
+                  </h3>
+
+                  <!-- Description -->
+                  {item.description && (
+                    <p class="text-xs text-[#524842] mt-1 leading-relaxed">
+                      {item.description}
+                    </p>
+                  )}
+                </div>
+
+                <!-- Price Row (Clean tabular typography, No "Preço" label) -->
+                <div class="pt-3 mt-3 border-t border-[#181412]/15 flex items-center justify-end">
+                  <span class="text-sm sm:text-base font-black font-mono text-[#181412] tabular-numbers tracking-tight">
+                    {item.price}
+                  </span>
+                </div>
+
+              </div>
+            ))}
+          </div>
+
+        </section>
+      ))}
+
+      <!-- Empty state when searching -->
+      <div id="qr-search-empty" class="hidden text-center py-16 space-y-3 bg-white rounded-2xl border-2 border-[#181412] shadow-[4px_4px_0px_#181412]">
+        <p class="text-base font-extrabold text-[#181412]">Nenhum item encontrado com o termo pesquisado.</p>
+        <p class="text-xs text-[#524842]">Verifique a digitação ou selecione uma categoria acima.</p>
+      </div>
+
+    </div>
+
+    <!-- Bottom Notice -->
+    <div class="max-w-[1380px] w-full mx-auto px-4 sm:px-6 lg:px-8 mt-12 text-center space-y-2">
+      <p class="text-xs font-mono text-[#786F66] uppercase tracking-wider">
+        Proibida a venda de bebidas alcoólicas para menores de 18 anos • Se beber, não dirija.
+      </p>
+      <div class="pt-2">
+        <a 
+          href="/" 
+          class="inline-flex items-center gap-2 text-xs font-bold font-mono text-[#C41E14] hover:underline"
+        >
+          <span>← Conhecer as pistas e horários do Novo Boliche</span>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Mobile Floating Call Attendant Button -->
+  <aside class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
+    <a 
+      href={attendantWhatsUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chamar Atendente no WhatsApp"
+      class="flex items-center gap-2.5 px-5 py-3.5 rounded-full text-white bg-[#168B42] hover:bg-[#127236] border-2 border-[#181412] shadow-[4px_4px_0px_#181412] font-bold text-xs sm:text-sm tracking-wide transition-all hover:scale-105 active:scale-95 group"
+    >
+      <span class="relative flex h-2.5 w-2.5 shrink-0">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
+      </span>
+      <span>Chamar Atendente</span>
+      <svg class="w-6 h-6 fill-current shrink-0 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.58 1.968.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.449.741.964 1.2 201 1.028 1.139 1.192 1.312.087.058.174.043.245-.043.072-.087.318-.376.405-.506.086-.13.173-.101.289-.058.116.043.737.347.864.411.127.064.212.096.242.149.03.053.03.31-.114.715z"/>
+      </svg>
+    </a>
+  </aside>
+</MainLayout>
+
+<script>
+  // Instant Search and Category Filter Logic for Virtual Menu
+  const searchInput = document.getElementById('qr-search-input') as HTMLInputElement | null;
+  const tabButtons = document.querySelectorAll<HTMLButtonElement>('.qr-tab-btn');
+  const categoryGroups = document.querySelectorAll<HTMLElement>('.qr-category-group');
+  const allItems = document.querySelectorAll<HTMLElement>('.qr-menu-item');
+  const emptyState = document.getElementById('qr-search-empty');
+
+  let activeCategory = 'all';
+
+  function applyFilter() {
+    const term = (searchInput?.value || '').trim().toLowerCase();
+    let visibleCount = 0;
+
+    allItems.forEach((card) => {
+      const name = card.dataset.name || '';
+      const code = card.dataset.code || '';
+      const desc = card.dataset.desc || '';
+      const cat = card.dataset.cat || '';
+
+      const matchesSearch = !term || name.includes(term) || code.includes(term) || desc.includes(term);
+      const matchesCategory = activeCategory === 'all' || cat === activeCategory;
+
+      if (matchesSearch && matchesCategory) {
+        card.style.display = 'flex';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    categoryGroups.forEach((group) => {
+      const catId = group.dataset.catId;
+      const visibleItemsInGroup = group.querySelectorAll('.qr-menu-item:not([style*="display: none"])');
+      
+      if (activeCategory !== 'all' && catId !== activeCategory) {
+        group.style.display = 'none';
+      } else if (term && visibleItemsInGroup.length === 0) {
+        group.style.display = 'none';
+      } else {
+        group.style.display = 'block';
+      }
+    });
+
+    if (emptyState) {
+      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+  }
+
+  // Handle Tab Click
+  tabButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      tabButtons.forEach((b) => {
+        b.classList.remove('bg-[#C41E14]', 'text-white');
+        b.classList.add('bg-white', 'text-[#181412]');
+      });
+      btn.classList.remove('bg-white', 'text-[#181412]');
+      btn.classList.add('bg-[#C41E14]', 'text-white');
+
+      activeCategory = btn.dataset.catId || 'all';
+      applyFilter();
+    });
+  });
+
+  // Handle Search Input
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      applyFilter();
+    });
+  }
+</script>
