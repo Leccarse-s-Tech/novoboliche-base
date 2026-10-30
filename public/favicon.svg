@@ -1,12 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f59e0b" />
-      <stop offset="100%" stop-color="#ff3366" />
-    </linearGradient>
-  </defs>
-  <circle cx="50" cy="50" r="46" fill="url(#grad)" />
-  <circle cx="42" cy="36" r="6" fill="#030712" />
-  <circle cx="58" cy="36" r="6" fill="#030712" />
-  <circle cx="50" cy="52" r="6" fill="#030712" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Dark Charcoal Background -->
+  <rect width="64" height="64" rx="16" fill="#121110" />
+  <!-- Red Bowling Ball -->
+  <circle cx="28" cy="34" r="20" fill="#C9281D" stroke="#A91F16" stroke-width="2" />
+  <!-- Finger holes -->
+  <circle cx="23" cy="27" r="3" fill="#121110" />
+  <circle cx="33" cy="27" r="3" fill="#121110" />
+  <circle cx="28" cy="36" r="3" fill="#121110" />
+  <!-- Bowling Pin Accent -->
+  <path 
+    d="M48 10 C45 10, 43 12, 43 15 C43 17, 44 19, 45 21 C46 23, 46 25, 43 28 C39 32, 38 39, 38 45 C38 50, 42 53, 48 53 C54 53, 58 50, 58 45 C58 39, 57 32, 53 28 C50 25, 50 23, 51 21 C52 19, 53 17, 53 15 C53 12, 51 10, 48 10 Z" 
+    fill="#F5F0E6" 
+  />
+  <!-- Dual stripes -->
+  <path d="M44.5 19 Q48 20 51.5 19 L51.7 21 Q48 22 44.3 21 Z" fill="#E04E22" />
+  <path d="M44 23 Q48 24 52 23 L52.2 25 Q48 26 43.8 25 Z" fill="#E04E22" />
 </svg>

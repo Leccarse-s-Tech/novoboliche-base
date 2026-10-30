@@ -2,14 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg-cream: #FAF6EE;
+  --bg-ivory: #F4EFE6;
+  --text-primary: #181412;
+  --text-muted: #524842;
+  --strike-red: #C41E14;
+  --strike-red-dark: #A91F16;
+  --pin-stripe-orange: #E04E22;
+  --lane-maple: #D4A36A;
+  --whatsapp-green: #168B42;
+  --whatsapp-border: #0E5A2B;
+  --border-arcade: #181412;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #FAF6EE;
+    color: #181412;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    background-color: #faf9f5;
-    color: #18181b;
+    background-color: #FAF6EE;
+    color: #181412;
+    overflow-x: hidden;
+    min-height: 100vh;
   }
+
+  ::selection {
+    background-color: var(--strike-red);
+    color: #ffffff;
+  }
+}
+
+/* Graphic DNA: Pin-Stripe Dual Divider */
+.pin-stripe-divider {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 10px;
+}
+.pin-stripe-divider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: var(--strike-red);
+}
+.pin-stripe-divider::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--pin-stripe-orange);
+}
+
+/* Header bottom pin-stripe */
+.pin-stripe-header-border {
+  border-bottom: 3px solid var(--strike-red);
+  box-shadow: 0 2px 0 0 var(--pin-stripe-orange);
+}
+
+/* Arcade Ticket Card Shadows */
+.shadow-arcade {
+  box-shadow: 4px 4px 0px #181412;
+}
+.shadow-arcade-red {
+  box-shadow: 4px 4px 0px #C41E14;
+}
+.shadow-arcade-sm {
+  box-shadow: 2px 2px 0px #181412;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Tabular numbers for price codes and currency */
+.tabular-numbers {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
 }

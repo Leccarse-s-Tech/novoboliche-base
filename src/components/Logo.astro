@@ -1,0 +1,20 @@
+---
+import { Image } from 'astro:assets';
+import officialLogo from '../logo/boliche-final-02.png';
+
+interface Props {
+  className?: string;
+  variant?: 'full' | 'compact' | 'icon';
+}
+
+const { className = "h-16 w-auto", variant = 'full' } = Astro.props;
+---
+
+<div class={`inline-flex items-center select-none ${className}`} aria-label="Novo Boliche Vila Maria">
+  <Image 
+    src={officialLogo} 
+    alt="Novo Boliche Vila Maria — Logo Oficial" 
+    class="h-full w-auto object-contain drop-shadow-sm"
+    loading="eager"
+  />
+</div>

@@ -7,66 +7,67 @@ interface Props {
 }
 
 const {
-  title = "Novo Boliche Vila Maria | Boliche & Bar na Zona Norte de São Paulo",
-  description = "Venha se divertir no Novo Boliche Vila Maria na Zona Norte de SP! Pistas automáticas, porções especiais, chopp gelado, pacotes para aniversários e confraternizações. Confira horários e reserve sua pista!",
+  title = "Novo Boliche Vila Maria — A Emoção do Strike e Tradição na Zona Norte",
+  description = "Mais de 30 anos de tradição na Vila Maria. 10 pistas 100% automatizadas, ambiente familiar e acolhedor para amigos, famílias e empresas. Reserve sua pista pelo WhatsApp!",
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://novobolichevilamaria.com.br");
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://novoboliche.com.br");
 
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "BowlingAlley",
-  "name": "Novo Boliche Vila Maria",
-  "image": "https://novobolichevilamaria.com.br/og-image.jpg",
-  "telephone": "+55-11-2967-4220",
+  "name": "Novo Boliche",
+  "alternateName": "Novo Boliche Vila Maria",
+  "image": "https://novoboliche.com.br/og-image.png",
+  "telephone": "+5511925323393",
   "priceRange": "$$",
-  "url": "https://novobolichevilamaria.com.br",
+  "url": "https://novoboliche.com.br",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Av. Guilherme Cotching, 1086",
+    "streetAddress": "Av. Guilherme Cotching, 1453",
     "addressLocality": "São Paulo",
     "addressRegion": "SP",
-    "postalCode": "02113-012",
+    "postalCode": "02113-015",
     "addressCountry": "BR"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": -23.5186,
-    "longitude": -46.5891
+    "latitude": -23.5166441,
+    "longitude": -46.5886138
   },
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"],
-      "opens": "16:00",
-      "closes": "00:30"
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+      "opens": "18:00",
+      "closes": "00:00"
     },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Friday",
-      "opens": "16:00",
-      "closes": "02:30"
+      "opens": "17:00",
+      "closes": "01:00"
     },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Saturday",
-      "opens": "14:00",
-      "closes": "02:30"
+      "opens": "15:00",
+      "closes": "02:00"
     },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Sunday",
-      "opens": "14:00",
-      "closes": "00:30"
+      "opens": "15:00",
+      "closes": "00:00"
     }
   ],
-  "servesCuisine": ["Pizzas", "Porções", "Hambúrgueres", "Drinks", "Chopp"],
-  "hasMap": "https://maps.google.com/?q=Av.+Guilherme+Cotching,+1086+-+Vila+Maria,+São+Paulo+-+SP"
+  "servesCuisine": ["Pizzas", "Hambúrgueres", "Porções", "Chopp", "Drinks"],
+  "hasMap": "https://www.google.com/maps/place/Novo+Boliche/@-23.5166441,-46.5886138,17z/data=!4m8!3m7!1s0x94ce5f3420e9b5c3:0xa0008fba1c5f0e2e!8m2!3d-23.5166441!4d-46.5886138!9m1!1b1!16s%2Fg%2F11bwn24wr_"
 };
 ---
 
 <!doctype html>
-<html lang="pt-BR" class="scroll-smooth bg-[#faf9f5]">
+<html lang="pt-BR" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -77,13 +78,14 @@ const schemaData = {
     <meta name="description" content={description} />
     <meta name="author" content="Novo Boliche Vila Maria" />
     <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#FAF6EE" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://novobolichevilamaria.com.br/og-image.jpg" />
+    <meta property="og:image" content="https://novoboliche.com.br/og-image.png" />
     <meta property="og:locale" content="pt_BR" />
 
     <!-- Twitter -->
@@ -91,17 +93,20 @@ const schemaData = {
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="https://novobolichevilamaria.com.br/og-image.jpg" />
+    <meta property="twitter:image" content="https://novoboliche.com.br/og-image.png" />
 
-    <!-- Google Fonts Caprasimo & Plus Jakarta Sans -->
+    <!-- Google Fonts: Bricolage Grotesque, Syne, Plus Jakarta Sans, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" 
+      rel="stylesheet" 
+    />
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
   </head>
-  <body class="bg-[#faf9f5] text-[#18181b] antialiased selection:bg-amber-300 selection:text-black min-h-screen flex flex-col font-sans">
+  <body class="bg-[#FAF6EE] text-[#181412] antialiased min-h-screen flex flex-col font-sans selection:bg-strike-red selection:text-white">
     <slot />
   </body>
 </html>
