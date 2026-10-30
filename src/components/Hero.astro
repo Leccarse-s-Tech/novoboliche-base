@@ -1,120 +1,113 @@
 ---
 import { Image } from 'astro:assets';
-import mainPhoto from '../content/img/main-photo.jpg';
-import { WHATSAPP_PHONE } from '../data/pricing';
+import mainPhoto from '../assets/main-photo.jpg';
+import { createWhatsAppUrl } from '../data/pricing';
 
-const heroWhatsUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent("Olá! Gostaria de reservar uma pista no Novo Boliche Vila Maria.")}`;
+const heroWhatsUrl = createWhatsAppUrl("Olá! Vim pelo site do Novo Boliche e quero saber como funciona para garantir uma pista.");
 ---
 
-<section class="pt-6 pb-16 sm:pt-10 sm:pb-24 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="experiencia" class="relative pt-10 pb-16 sm:pt-14 sm:pb-24 bg-[#FAF6EE] text-[#181412] overflow-hidden border-b-2 border-[#181412]">
+  <div class="max-w-[1380px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
-    <!-- Big Headline exactly like "Our Blooms®" in the reference -->
-    <div class="flex flex-col sm:flex-row items-baseline justify-between mb-4 sm:mb-6">
-      <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-[112px] font-black tracking-tight text-[#18181b] font-display leading-[0.95]">
-        Novo Boliche<span class="text-3xl sm:text-5xl md:text-6xl align-super font-bold ml-1 text-zinc-900">®</span>
-      </h1>
-      <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-zinc-500 mt-2 sm:mt-0 font-sans">
-        São Paulo • Desde 1998
-      </span>
-    </div>
-
-    <!-- Framed Visual Hero Card with Rounded Corners -->
-    <div class="relative w-full rounded-2xl sm:rounded-3xl lg:rounded-[36px] overflow-hidden bg-zinc-200 border border-zinc-200/80 shadow-float">
-      
-      <!-- Main Photo from src/content/img -->
-      <div class="relative aspect-[16/10] sm:aspect-[16/8] lg:aspect-[21/10] w-full overflow-hidden">
-        <Image 
-          src={mainPhoto} 
-          alt="Pistas e Ambiente do Novo Boliche Vila Maria" 
-          class="w-full h-full object-cover object-center transform hover:scale-102 transition-transform duration-700"
-          priority
-        />
-        
-        <!-- Subtle warm overlay for editorial depth -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
-
-        <!-- Yellow Scalloped Sunburst Sticker (Exact match to the reference "NEW 10% Off Your First Order SPECIAL") -->
-        <div class="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 z-20 group hover:scale-105 transition-transform duration-300">
-          <div class="relative w-28 h-28 sm:w-36 sm:h-36 flex items-center justify-center">
-            <!-- 24-point Scalloped Starburst SVG -->
-            <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-md">
-              <path 
-                d="M50 0 L55 6 L63 3 L66 11 L75 10 L76 18 L85 20 L83 28 L92 32 L88 40 L97 46 L91 53 L98 60 L91 66 L95 74 L87 78 L88 86 L80 88 L77 96 L69 95 L64 100 L58 97 L50 100 L42 97 L36 100 L31 95 L23 96 L20 88 L12 86 L13 78 L5 74 L9 66 L2 60 L9 53 L3 46 L12 40 L8 32 L17 28 L15 20 L24 18 L25 10 L34 11 L37 3 L45 6 Z" 
-                fill="#facc15" 
-              />
-            </svg>
-            <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-2 text-zinc-950 leading-none select-none pointer-events-none">
-              <span class="text-[8px] sm:text-[9px] tracking-widest uppercase font-extrabold opacity-75">NOVO</span>
-              <span class="text-[11px] sm:text-xs font-black uppercase tracking-tight mt-0.5">Happy Hour</span>
-              <span class="text-xs sm:text-base font-black text-rose-600 mt-0.5">R$ 89/h</span>
-              <span class="text-[8px] sm:text-[9px] uppercase tracking-widest font-extrabold opacity-75 mt-0.5">ESPECIAL</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Floating Tag inside Photo -->
-        <div class="absolute top-4 right-4 sm:top-6 sm:right-6 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-bold text-zinc-900 border border-white/60 shadow-sm flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-          <span>12 Pistas Automáticas & Bar</span>
-        </div>
-
+    <!-- Top Tradition Ribbon -->
+    <div class="flex items-center gap-3 mb-6">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border-2 border-[#181412] text-[#181412] text-xs font-bold uppercase tracking-wider shadow-[2px_2px_0px_#181412]">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#C41E14] inline-block"></span>
+        <span>HÁ MAIS DE 30 ANOS NA VILA MARIA • ★ 4,3 NO GOOGLE MAPS</span>
       </div>
-
+      <div class="hidden sm:block flex-1 h-[2px] bg-[#181412]/30"></div>
     </div>
 
-    <!-- Editorial Subtitle & Actions Bar -->
-    <div class="mt-8 sm:mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <!-- 12-Column Asymmetric Grid (7 cols typography + 5 cols visual photo) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
       
-      <div class="lg:col-span-7 space-y-4">
-        <p class="text-xl sm:text-2xl text-zinc-800 font-medium leading-relaxed font-sans">
-          O ponto de encontro mais autêntico da <strong>Zona Norte de São Paulo</strong>. Boliche profissional, porções de boteco feitas na hora, chopp trincando e o clima perfeito para curtir com a galera.
+      <!-- Col 1-7: High-Impact Institutional Typography & CTAs -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <h1 class="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[60px] font-extrabold text-[#181412] font-display uppercase tracking-tightest leading-[1.05] break-words">
+          O BOLICHE MAIS TRADICIONAL DA ZONA NORTE.
+        </h1>
+
+        <p class="text-base sm:text-lg md:text-xl text-[#524842] font-sans leading-relaxed max-w-2xl font-normal">
+          Há mais de 30 anos na Vila Maria. 10 pistas 100% automatizadas em uma estrutura completa para reunir família, amigos e comemorações.
         </p>
 
-        <div class="flex flex-wrap items-center gap-6 pt-2 text-xs font-semibold uppercase tracking-wider text-zinc-500">
-          <span class="flex items-center gap-1.5">
-            <svg class="w-4 h-4 text-zinc-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        <!-- CTAs -->
+        <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <!-- Primary CTA (WhatsApp Green, Enlarged SVG Icon) -->
+          <a 
+            href={heroWhatsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl font-bold text-sm text-white bg-[#168B42] hover:bg-[#127236] border-[1.5px] border-[#0E5A2B] shadow-[4px_4px_0px_#181412] transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 text-center group"
+          >
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="w-6 h-6 sm:w-7 sm:h-7 shrink-0 group-hover:scale-110 transition-transform">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.58 1.968.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.449.741.964 1.2 201 1.028 1.139 1.192 1.312.087.058.174.043.245-.043.072-.087.318-.376.405-.506.086-.13.173-.101.289-.058.116.043.737.347.864.411.127.064.212.096.242.149.03.053.03.31-.114.715z"/>
             </svg>
-            Até 6 pessoas por pista
-          </span>
-          <span class="flex items-center gap-1.5">
-            <svg class="w-4 h-4 text-zinc-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            <span>Garantir Minha Pista no WhatsApp</span>
+          </a>
+
+          <!-- Secondary CTA (Solid Border, White Background) -->
+          <a 
+            href="#horarios"
+            class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold text-xs uppercase tracking-wider text-[#181412] bg-white hover:bg-[#FAF6EE] border-2 border-[#181412] shadow-[4px_4px_0px_#181412] transition-all text-center"
+          >
+            <span>Ver Horários e Valores</span>
+            <svg class="w-4 h-4 text-[#181412]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
             </svg>
-            Bumpers para crianças
-          </span>
-          <span class="flex items-center gap-1.5">
-            <svg class="w-4 h-4 text-zinc-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            Comandas individuais
-          </span>
+          </a>
         </div>
+
+        <!-- Technical Specs / Placar Técnico das Pistas (#tradicao) -->
+        <div id="tradicao" class="pt-6 border-t-2 border-[#181412]/20 grid grid-cols-1 sm:grid-cols-3 gap-3">
+          
+          <div class="p-4 rounded-xl bg-white border-2 border-[#181412] shadow-[3px_3px_0px_#181412]">
+            <div class="flex items-baseline gap-1.5">
+              <span class="text-3xl font-black font-mono text-[#C41E14] tabular-numbers">10</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-[#181412]">PISTAS</span>
+            </div>
+            <p class="text-xs text-[#524842] mt-1.5 leading-snug">
+              Totalmente automatizadas com reposição automática de pinos.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white border-2 border-[#181412] shadow-[3px_3px_0px_#181412]">
+            <div class="flex items-baseline gap-1.5">
+              <span class="text-3xl font-black font-mono text-[#181412] tabular-numbers">ATÉ 6</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-[#181412]">JOGADORES</span>
+            </div>
+            <p class="text-xs text-[#524842] mt-1.5 leading-snug">
+              Capacidade máxima por pista com conforto para todos.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white border-2 border-[#181412] shadow-[3px_3px_0px_#181412]">
+            <div class="flex items-baseline gap-1.5">
+              <span class="text-3xl font-black font-mono text-[#C41E14] tabular-numbers">+30</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-[#181412]">ANOS</span>
+            </div>
+            <p class="text-xs text-[#524842] mt-1.5 leading-snug">
+              Tradição, diversão e encontros memoráveis na Vila Maria.
+            </p>
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end lg:items-end">
-        <a 
-          href={heroWhatsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-bold text-sm text-zinc-950 bg-yellow-400 hover:bg-yellow-300 border border-yellow-500/50 shadow-md transition-all hover:scale-102 active:scale-98"
-        >
-          <span>Reservar Pista pelo WhatsApp</span>
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.58 1.968.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.449.741.964 1.2 201 1.028 1.139 1.192 1.312.087.058.174.043.245-.043.072-.087.318-.376.405-.506.086-.13.173-.101.289-.058.116.043.737.347.864.411.127.064.212.096.242.149.03.053.03.31-.114.715z"/>
-          </svg>
-        </a>
-
-        <a 
-          href="#precos"
-          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-xs text-zinc-700 bg-white hover:bg-zinc-100 border border-zinc-300 transition-colors"
-        >
-          <span>Consultar Tabela de Horários</span>
-          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </a>
+      <!-- Col 8-12: Clean Framed Photograph (Zero Floating Badges) -->
+      <div class="lg:col-span-5">
+        <div class="rounded-2xl overflow-hidden border-2 border-[#181412] shadow-[4px_4px_0px_#181412] bg-white">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-neutral-100">
+            <Image 
+              src={mainPhoto} 
+              alt="Pistas oficiais do Novo Boliche Vila Maria com placar eletrônico e reposição automática" 
+              class="w-full h-full object-cover"
+              priority
+            />
+          </div>
+        </div>
       </div>
 
     </div>

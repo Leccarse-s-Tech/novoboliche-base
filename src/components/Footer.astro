@@ -1,92 +1,129 @@
 ---
-import { ADDRESS, DISPLAY_PHONE, WHATSAPP_PHONE } from '../data/pricing';
+import Logo from './Logo.astro';
+import { 
+  ADDRESS, 
+  DISPLAY_WHATSAPP, 
+  DISPLAY_FIXO_1, 
+  DISPLAY_FIXO_2, 
+  INSTAGRAM_HANDLE, 
+  INSTAGRAM_URL, 
+  createWhatsAppUrl 
+} from '../data/pricing';
+
+const footerWhatsUrl = createWhatsAppUrl("Olá! Vim pelo site do Novo Boliche.");
 ---
 
-<footer class="bg-zinc-950 text-zinc-400 text-xs pt-16 pb-12 border-t border-zinc-900">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-zinc-800">
+<footer class="bg-[#181412] text-[#A8A096] text-xs pt-16 pb-12 relative border-t-2 border-[#181412]">
+  
+  <!-- Pin-Stripe dual line at the very top of footer -->
+  <div class="pin-stripe-divider absolute top-0 left-0 right-0"></div>
+
+  <div class="max-w-[1380px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
       
-      <!-- Brand -->
+      <!-- Brand & Mission -->
       <div class="space-y-4">
-        <span class="text-2xl font-black text-white font-display uppercase tracking-tight block">
-          Novo Boliche®
-        </span>
-        <p class="text-zinc-400 leading-relaxed font-sans">
-          Tradição, diversão e gastronomia de boteco na Zona Norte de São Paulo. Pistas modernas e atendimento para amigos, famílias e empresas.
+        <Logo className="h-14 w-auto" />
+        <p class="text-[#A8A096] leading-relaxed text-xs">
+          Mais de 30 anos de tradição em boliche automatizado, gastronomia artesanal de boteco e chopp trincando na Zona Norte de São Paulo.
         </p>
-        <div class="flex items-center gap-3 text-zinc-300 pt-1">
-          <a href="https://instagram.com/novoboliche" target="_blank" rel="noopener noreferrer" class="hover:text-yellow-400 transition-colors p-2 rounded-full bg-zinc-900 border border-zinc-800" aria-label="Instagram">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </a>
-          <a href="https://facebook.com/novobolichevilamaria" target="_blank" rel="noopener noreferrer" class="hover:text-yellow-400 transition-colors p-2 rounded-full bg-zinc-900 border border-zinc-800" aria-label="Facebook">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.6 5H18V0h-3.808C10.595 0 9 1.583 9 4.615V8z"/></svg>
+        
+        <div class="pt-2">
+          <a 
+            href={INSTAGRAM_URL}
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/20 text-[#FAF6EE] hover:text-[#C41E14] hover:border-[#C41E14] transition-colors text-xs font-mono font-bold"
+            aria-label="Instagram Oficial"
+          >
+            <svg class="w-4 h-4 fill-current text-[#C41E14]" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>{INSTAGRAM_HANDLE}</span>
           </a>
         </div>
       </div>
 
-      <!-- Links -->
+      <!-- Quick Nav -->
       <div class="space-y-3">
-        <h4 class="text-xs font-bold text-white uppercase tracking-widest">Navegação</h4>
-        <ul class="space-y-2">
-          <li><a href="#precos" class="hover:text-white transition-colors">Tabela de Preços</a></li>
-          <li><a href="#simulador" class="hover:text-white transition-colors">Simulador de Rateio</a></li>
-          <li><a href="#gastronomia" class="hover:text-white transition-colors">Porções & Pizzas</a></li>
-          <li><a href="#aniversarios" class="hover:text-white transition-colors">Aniversários & Festas</a></li>
-          <li><a href="#faq" class="hover:text-white transition-colors">Perguntas Frequentes</a></li>
-          <li><a href="#localizacao" class="hover:text-white transition-colors">Como Chegar</a></li>
+        <h4 class="text-xs font-mono font-bold text-[#FAF6EE] uppercase tracking-wider">
+          Navegação Rápida
+        </h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="/#experiencia" class="hover:text-[#FAF6EE] text-[#A8A096] transition-colors">Experiência & Pistas</a></li>
+          <li><a href="/#tradicao" class="hover:text-[#FAF6EE] text-[#A8A096] transition-colors">Tradição (+30 Anos)</a></li>
+          <li><a href="/#horarios" class="hover:text-[#FAF6EE] text-[#A8A096] transition-colors">Horários e Valores</a></li>
+          <li><a href="/#avaliacoes" class="hover:text-[#FAF6EE] text-[#A8A096] transition-colors">Avaliações do Google</a></li>
+          <li><a href="/cardapio" class="hover:text-[#FAF6EE] text-[#A8A096] transition-colors">Cardápio Virtual Completo</a></li>
+          <li><a href="/#eventos" class="hover:text-[#FAF6EE] text-[#A8A096] transition-colors">Aniversários & Eventos</a></li>
+          <li><a href="/#localizacao" class="hover:text-[#FAF6EE] text-[#A8A096] transition-colors">Como Chegar</a></li>
         </ul>
       </div>
 
-      <!-- Horários -->
+      <!-- Updated Opening Hours -->
       <div class="space-y-3">
-        <h4 class="text-xs font-bold text-white uppercase tracking-widest">Horários</h4>
-        <ul class="space-y-2 text-zinc-400">
-          <li class="flex justify-between">
+        <h4 class="text-xs font-mono font-bold text-[#FAF6EE] uppercase tracking-wider">
+          Horários de Pista
+        </h4>
+        <ul class="space-y-1.5 text-[11px] font-mono">
+          <li class="flex justify-between py-0.5 border-b border-white/10">
             <span>Segunda-feira:</span>
-            <span class="text-rose-400">Fechado</span>
+            <span class="text-[#FAF6EE] font-bold">18h à 0h</span>
           </li>
-          <li class="flex justify-between">
+          <li class="flex justify-between py-0.5 border-b border-white/10">
             <span>Terça a Quinta:</span>
-            <span class="text-zinc-200">16h às 00h30</span>
+            <span class="text-[#FAF6EE] font-bold">18h à 0h</span>
           </li>
-          <li class="flex justify-between">
+          <li class="flex justify-between py-0.5 border-b border-white/10">
             <span>Sexta-feira:</span>
-            <span class="text-zinc-200">16h às 02h30</span>
+            <span class="text-[#FAF6EE] font-bold">17h à 1h</span>
           </li>
-          <li class="flex justify-between">
+          <li class="flex justify-between py-0.5 border-b border-white/10">
             <span>Sábado:</span>
-            <span class="text-zinc-200">14h às 02h30</span>
+            <span class="text-[#FAF6EE] font-bold">15h às 2h</span>
           </li>
-          <li class="flex justify-between">
+          <li class="flex justify-between py-0.5 border-b border-white/10">
             <span>Domingo:</span>
-            <span class="text-zinc-200">14h às 00h30</span>
+            <span class="text-[#FAF6EE] font-bold">15h à 0h</span>
+          </li>
+          <li class="flex justify-between py-0.5">
+            <span>Feriados / Vésperas:</span>
+            <span class="text-[#E04E22] font-bold">16h à 1h</span>
           </li>
         </ul>
       </div>
 
-      <!-- Contato -->
+      <!-- Official Contact & Location -->
       <div class="space-y-3">
-        <h4 class="text-xs font-bold text-white uppercase tracking-widest">Endereço & Contato</h4>
-        <p class="text-zinc-300 font-medium">
+        <h4 class="text-xs font-mono font-bold text-[#FAF6EE] uppercase tracking-wider">
+          Endereço & Contato
+        </h4>
+        <p class="text-[#FAF6EE] text-xs leading-relaxed">
           {ADDRESS}
         </p>
-        <p class="pt-1">
-          <span class="block text-zinc-400">Telefone / WhatsApp:</span>
-          <a href={`https://wa.me/${WHATSAPP_PHONE}`} class="text-yellow-400 font-bold hover:underline">
-            {DISPLAY_PHONE}
-          </a>
-        </p>
+        <div class="space-y-1 pt-1 font-mono text-xs">
+          <p>
+            <span class="text-[#A8A096]">WhatsApp Oficial:</span><br/>
+            <a href={footerWhatsUrl} target="_blank" rel="noopener noreferrer" class="text-[#168B42] font-bold hover:underline">
+              {DISPLAY_WHATSAPP}
+            </a>
+          </p>
+          <p>
+            <span class="text-[#A8A096]">Telefones Fixos:</span><br/>
+            <span class="text-[#FAF6EE] font-bold">{DISPLAY_FIXO_1}</span> / <span class="text-[#FAF6EE] font-bold">{DISPLAY_FIXO_2}</span>
+          </p>
+        </div>
       </div>
 
     </div>
 
-    <!-- Bottom -->
-    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-400">
+    <!-- Bottom Copyright -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#A8A096]">
       <p>
         © {new Date().getFullYear()} Novo Boliche Vila Maria. Todos os direitos reservados.
       </p>
-      <p>
-        Vila Maria • Zona Norte de São Paulo - SP
+      <p class="font-mono">
+        10 Pistas Automatizadas • Tradição na Zona Norte de São Paulo
       </p>
     </div>
 

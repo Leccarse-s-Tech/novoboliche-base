@@ -1,78 +1,122 @@
 ---
-import { WHATSAPP_PHONE } from '../data/pricing';
+import Logo from './Logo.astro';
+import { WHATSAPP_PHONE, createWhatsAppUrl } from '../data/pricing';
 
-const defaultWhatsMessage = encodeURIComponent("Olá! Gostaria de informações e reservas de pistas no Novo Boliche Vila Maria.");
-const whatsAppUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${defaultWhatsMessage}`;
+const headerWhatsMessage = "Olá! Vim pelo site do Novo Boliche e gostaria de informações.";
+const headerWhatsUrl = createWhatsAppUrl(headerWhatsMessage);
+
+const navLinks = [
+  { href: "/#experiencia", label: "Experiência" },
+  { href: "/#tradicao", label: "Tradição" },
+  { href: "/#horarios", label: "Horários" },
+  { href: "/cardapio", label: "Cardápio" },
+  { href: "/#eventos", label: "Eventos" },
+  { href: "/#localizacao", label: "Localização" },
+];
 ---
 
-<header class="w-full bg-[#faf9f5] border-b border-zinc-200/80 sticky top-0 z-50 backdrop-blur-md bg-[#faf9f5]/90">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 sm:h-20">
+<header class="sticky top-0 z-50 w-full bg-[#FAF6EE]/95 backdrop-blur-md pin-stripe-header-border transition-all duration-200">
+  <div class="max-w-[1380px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-24 sm:h-28">
       
-      <!-- Left: Local Tagline -->
-      <div class="flex items-center gap-2 text-xs font-semibold tracking-wider text-zinc-500 uppercase">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
-        <span class="hidden sm:inline">Vila Maria • Zona Norte SP</span>
-        <span class="sm:hidden">Vila Maria, SP</span>
-      </div>
+      <!-- Left: Official Logo (Amplified Presence 64px to 84px) -->
+      <a href="/" class="flex items-center py-2 transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#C41E14]/50 rounded-xl" aria-label="Página Inicial do Novo Boliche">
+        <Logo className="h-16 sm:h-20 lg:h-[84px] w-auto object-contain" />
+      </a>
 
-      <!-- Center: Status / Nav -->
-      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-zinc-700">
-        <a href="#precos" class="hover:text-zinc-950 transition-colors">Preços</a>
-        <a href="#simulador" class="hover:text-zinc-950 transition-colors">Simulador</a>
-        <a href="#gastronomia" class="hover:text-zinc-950 transition-colors">Gastronomia</a>
-        <a href="#aniversarios" class="hover:text-zinc-950 transition-colors">Aniversários</a>
-        <a href="#faq" class="hover:text-zinc-950 transition-colors">Dúvidas</a>
-        <a href="#localizacao" class="hover:text-zinc-950 transition-colors">Como Chegar</a>
+      <!-- Center: Smooth Anchor Links (Desktop) -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-bold tracking-wide" aria-label="Navegação Principal">
+        {navLinks.map((link) => (
+          <a 
+            href={link.href} 
+            class="text-[#181412] hover:text-[#C41E14] transition-colors duration-150 py-1 border-b-2 border-transparent hover:border-[#C41E14]"
+          >
+            {link.label}
+          </a>
+        ))}
       </nav>
 
-      <!-- Right: CTA Button -->
-      <div class="flex items-center gap-3">
+      <!-- Right: Direct WhatsApp CTA + Mobile Menu Button -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- WhatsApp CTA -->
         <a 
-          href={whatsAppUrl} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold text-zinc-900 bg-yellow-400 hover:bg-yellow-300 border border-yellow-500/40 shadow-sm transition-all hover:scale-105 active:scale-95"
+          href={headerWhatsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2.5 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#168B42] hover:bg-[#127236] border-[1.5px] border-[#0E5A2B] shadow-[2px_2px_0px_#181412] transition-all duration-200 hover:scale-105 active:scale-95 group"
         >
-          <span>Reservar Pista</span>
-          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+          <!-- Pulsing Live Indicator -->
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
+          </span>
+          <span class="hidden sm:inline">Chamar no WhatsApp</span>
+          <span class="sm:hidden text-[12px]">WhatsApp</span>
+          <!-- Clean SVG WhatsApp Icon (Enlarged Proportion) -->
+          <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current shrink-0 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.58 1.968.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.449.741.964 1.2 201 1.028 1.139 1.192 1.312.087.058.174.043.245-.043.072-.087.318-.376.405-.506.086-.13.173-.101.289-.058.116.043.737.347.864.411.127.064.212.096.242.149.03.053.03.31-.114.715z"/>
           </svg>
         </a>
 
-        <!-- Mobile Menu Toggle Button -->
+        <!-- Mobile Drawer Toggle -->
         <button 
-          id="mobile-menu-toggle"
+          id="mobile-drawer-btn" 
           type="button" 
-          aria-label="Abrir Menu" 
-          class="lg:hidden p-2 rounded-full border border-zinc-300 text-zinc-700 hover:text-zinc-950 focus:outline-none"
+          aria-label="Abrir Menu de Navegação"
+          aria-expanded="false"
+          class="lg:hidden p-2 rounded-lg border-2 border-[#181412] bg-white text-[#181412] hover:bg-[#FAF6EE] shadow-[2px_2px_0px_#181412] transition-colors focus:outline-none"
         >
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <svg id="hamburger-icon" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="close-icon" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
 
     </div>
 
-    <!-- Mobile Dropdown -->
-    <div id="mobile-menu" class="hidden lg:hidden border-t border-zinc-200 py-3 space-y-2">
-      <a href="#precos" class="block px-3 py-2 rounded-lg text-sm font-semibold text-zinc-800 hover:bg-zinc-100">Preços & Pistas</a>
-      <a href="#simulador" class="block px-3 py-2 rounded-lg text-sm font-semibold text-zinc-800 hover:bg-zinc-100">Simulador de Valor</a>
-      <a href="#gastronomia" class="block px-3 py-2 rounded-lg text-sm font-semibold text-zinc-800 hover:bg-zinc-100">Cardápio & Porções</a>
-      <a href="#aniversarios" class="block px-3 py-2 rounded-lg text-sm font-semibold text-zinc-800 hover:bg-zinc-100">Aniversários</a>
-      <a href="#faq" class="block px-3 py-2 rounded-lg text-sm font-semibold text-zinc-800 hover:bg-zinc-100">Dúvidas Frequentes</a>
-      <a href="#localizacao" class="block px-3 py-2 rounded-lg text-sm font-semibold text-zinc-800 hover:bg-zinc-100">Como Chegar</a>
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-drawer" class="hidden lg:hidden border-t-2 border-[#181412] py-4 px-2 space-y-1 bg-[#FAF6EE]">
+      {navLinks.map((link) => (
+        <a 
+          href={link.href} 
+          class="mobile-nav-link block px-4 py-3 rounded-lg text-sm font-bold text-[#181412] hover:bg-white hover:text-[#C41E14] transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+      <div class="pt-3 border-t border-[#181412]/20 text-xs text-[#524842] px-4 flex items-center justify-between">
+        <span>Vila Maria • Zona Norte de SP</span>
+        <span class="text-[#C41E14] font-bold">10 Pistas</span>
+      </div>
     </div>
+
   </div>
 </header>
 
 <script>
-  const toggleBtn = document.getElementById('mobile-menu-toggle');
-  const menuEl = document.getElementById('mobile-menu');
-  if (toggleBtn && menuEl) {
-    toggleBtn.addEventListener('click', () => {
-      menuEl.classList.toggle('hidden');
-    });
+  const drawerBtn = document.getElementById('mobile-drawer-btn');
+  const drawerMenu = document.getElementById('mobile-drawer');
+  const hamburger = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function toggleMenu() {
+    const isHidden = drawerMenu?.classList.toggle('hidden');
+    drawerBtn?.setAttribute('aria-expanded', String(!isHidden));
+    hamburger?.classList.toggle('hidden', !isHidden);
+    closeIcon?.classList.toggle('hidden', isHidden);
   }
+
+  drawerBtn?.addEventListener('click', toggleMenu);
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      if (!drawerMenu?.classList.contains('hidden')) {
+        toggleMenu();
+      }
+    });
+  });
 </script>

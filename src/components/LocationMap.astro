@@ -1,89 +1,120 @@
 ---
-import { ADDRESS, DISPLAY_PHONE } from '../data/pricing';
+import { 
+  ADDRESS, 
+  DISPLAY_WHATSAPP, 
+  DISPLAY_FIXO_1, 
+  DISPLAY_FIXO_2, 
+  MAPS_URL, 
+  createWhatsAppUrl 
+} from '../data/pricing';
 
-const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Novo Boliche, Av. Guilherme Cotching, 1086, Vila Maria, São Paulo - SP")}`;
-const wazeUrl = `https://waze.com/ul?q=${encodeURIComponent("Av. Guilherme Cotching, 1086, São Paulo")}`;
-const mapsEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.261219213123!2d-46.5916849237699!3d-23.518600078830737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce58ce5545f44d%3A0xe5435e0bc75338ab!2sAv.%20Guilherme%20Cotching%2C%201086%20-%20Vila%20Maria%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2002113-012!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr";
+const locationWhatsUrl = createWhatsAppUrl("Olá! Gostaria de saber como chegar ao Novo Boliche Vila Maria.");
+const wazeUrl = `https://waze.com/ul?q=${encodeURIComponent("Novo Boliche, Av. Guilherme Cotching, 1453, São Paulo")}`;
+const mapsEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.261219213123!2d-46.5909141!3d-23.5166441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5f3420e9b5c3%3A0xa0008fba1c5f0e2e!2sNovo%20Boliche!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr";
 ---
 
-<section id="localizacao" class="py-20 bg-[#faf9f5] border-t border-zinc-200">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="localizacao" class="py-20 bg-[#FAF6EE] text-[#181412] border-b-2 border-[#181412] relative">
+  <div class="max-w-[1380px] w-full mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
       
-      <!-- Left -->
-      <div class="lg:col-span-5 space-y-6">
-        <span class="inline-block text-xs font-bold uppercase tracking-widest text-zinc-500">
-          Localização & Rotas
-        </span>
+      <!-- Left: Contact, Address & Routing buttons (50% card) -->
+      <div class="space-y-6 flex flex-col justify-between">
+        
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border-2 border-[#181412] text-[#181412] text-xs font-bold uppercase tracking-wider shadow-[2px_2px_0px_#181412]">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#C41E14] inline-block"></span>
+            <span>Localização & Acesso Fácil</span>
+          </div>
 
-        <h2 class="text-4xl sm:text-5xl font-black text-zinc-950 font-display tracking-tight">
-          Como Chegar
-        </h2>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display uppercase tracking-tightest text-[#181412] leading-tight">
+            ONDE ESTAMOS & COMO CHEGAR
+          </h2>
 
-        <p class="text-base text-zinc-600 font-sans leading-relaxed">
-          Localizado na principal avenida da Vila Maria, com fácil acesso pela Marginal Tietê e Rodovia Presidente Dutra.
-        </p>
+          <p class="text-sm sm:text-base text-[#524842] font-medium leading-relaxed">
+            Localizado na principal avenida da Vila Maria, com acesso direto pela Marginal Tietê e Rodovia Presidente Dutra.
+          </p>
+        </div>
 
-        <!-- Address Box -->
-        <div class="p-6 rounded-2xl bg-white border border-zinc-200 shadow-soft space-y-4">
+        <!-- Address & Contact Card -->
+        <div class="p-6 sm:p-7 rounded-2xl bg-white border-2 border-[#181412] shadow-[4px_4px_0px_#181412] space-y-4">
+          
           <div>
-            <h4 class="text-xs uppercase font-bold tracking-wider text-zinc-400">Endereço:</h4>
-            <p class="text-sm font-bold text-zinc-950 mt-1">{ADDRESS}</p>
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#C41E14] block">
+              Endereço Oficial:
+            </span>
+            <p class="text-base sm:text-lg font-extrabold text-[#181412] mt-1 leading-snug">
+              {ADDRESS}
+            </p>
+            <span class="text-xs text-[#524842] block mt-0.5">
+              Vila Maria • Zona Norte de São Paulo/SP
+            </span>
           </div>
 
-          <div class="pt-3 border-t border-zinc-100 flex items-center justify-between">
-            <div>
-              <h4 class="text-xs uppercase font-bold tracking-wider text-zinc-400">Telefone:</h4>
-              <p class="text-sm font-bold text-zinc-950 mt-0.5">{DISPLAY_PHONE}</p>
+          <div class="pt-3 border-t border-[#181412]/15 space-y-2">
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#C41E14] block">
+              Telefones de Atendimento:
+            </span>
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs sm:text-sm font-mono">
+              <div>
+                <span class="text-[#524842]">WhatsApp: </span>
+                <a href={locationWhatsUrl} target="_blank" rel="noopener noreferrer" class="font-bold text-[#168B42] hover:underline">
+                  {DISPLAY_WHATSAPP}
+                </a>
+              </div>
+              <div>
+                <span class="text-[#524842]">Fixos: </span>
+                <span class="font-bold text-[#181412]">{DISPLAY_FIXO_1}</span>
+                <span class="text-[#524842] mx-1">•</span>
+                <span class="font-bold text-[#181412]">{DISPLAY_FIXO_2}</span>
+              </div>
             </div>
-            <a href="tel:+551129674220" class="text-xs font-bold px-3 py-1.5 rounded-full bg-zinc-100 text-zinc-800 hover:bg-zinc-200">
-              Ligar Agora
-            </a>
           </div>
+
         </div>
 
         <!-- Direct GPS Buttons -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
           <a 
-            href={googleMapsUrl}
+            href={MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 px-4 py-3 rounded-full font-bold text-xs uppercase tracking-wider text-zinc-900 bg-white border border-zinc-300 hover:bg-zinc-50 shadow-sm transition-all"
+            class="flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider text-[#181412] bg-white hover:bg-[#FAF6EE] border-2 border-[#181412] shadow-[3px_3px_0px_#181412] transition-all group text-center"
           >
-            <span>Google Maps</span>
-            <svg class="w-3.5 h-3.5 text-rose-500 fill-current" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-[#C41E14] fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/>
             </svg>
+            <span>Abrir no Google Maps</span>
           </a>
 
           <a 
             href={wazeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 px-4 py-3 rounded-full font-bold text-xs uppercase tracking-wider text-zinc-900 bg-white border border-zinc-300 hover:bg-zinc-50 shadow-sm transition-all"
+            class="flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider text-[#181412] bg-white hover:bg-[#FAF6EE] border-2 border-[#181412] shadow-[3px_3px_0px_#181412] transition-all group text-center"
           >
-            <span>Waze</span>
-            <svg class="w-3.5 h-3.5 text-cyan-600 fill-current" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-[#168B42] fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 2a10 10 0 00-10 10c0 4.1 2.5 7.6 6 9.1v-2.3C5.6 17.5 4 15 4 12a8 8 0 1115.3 3.3c.5.5.9 1 1.4 1.5A9.97 9.97 0 0022 12A10 10 0 0012 2zm-3 8a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm6 0a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/>
             </svg>
+            <span>Navegar pelo Waze</span>
           </a>
         </div>
 
       </div>
 
-      <!-- Right: Map -->
-      <div class="lg:col-span-7">
-        <div class="rounded-3xl overflow-hidden border border-zinc-200/90 shadow-soft h-[400px] bg-zinc-100">
+      <!-- Right: Embedded Google Maps (50% wide interactive map) -->
+      <div class="h-full min-h-[380px] lg:min-h-[460px]">
+        <div class="rounded-2xl overflow-hidden border-2 border-[#181412] shadow-[4px_4px_0px_#181412] h-full w-full bg-white relative">
           <iframe 
             src={mapsEmbedUrl} 
             width="100%" 
             height="100%" 
-            style="border:0;" 
+            style="border:0; min-height: 380px;" 
             allowfullscreen="" 
             loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade"
-            title="Localização do Novo Boliche Vila Maria no Google Maps"
+            title="Localização do Novo Boliche na Avenida Guilherme Cotching, Vila Maria"
+            class="filter contrast-[1.05] w-full h-full"
           ></iframe>
         </div>
       </div>
