@@ -23,7 +23,7 @@ const attendantWhatsUrl = createWhatsAppUrl("Olá! Estou no Novo Boliche e gosta
           </a>
           <a 
             href="/" 
-            class="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold font-mono text-[#524842] hover:text-[#C41E14] px-3 py-1.5 rounded-lg border border-[#181412]/20 hover:border-[#C41E14] transition-colors"
+            class="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-[#524842] hover:text-[#C41E14] px-3 py-1.5 rounded-lg border border-[#181412]/20 hover:border-[#C41E14] transition-colors"
           >
             <svg class="w-4 h-4 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -60,7 +60,7 @@ const attendantWhatsUrl = createWhatsAppUrl("Olá! Estou no Novo Boliche e gosta
     <div class="bg-[#F4EFE6] border-b-2 border-[#181412] py-8 sm:py-10">
       <div class="max-w-[1380px] w-full mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
 
-        <h1 class="text-2xl sm:text-4xl font-extrabold font-display uppercase tracking-tight text-[#181412]">
+        <h1 class="text-2xl sm:text-4xl font-extrabold uppercase tracking-tight text-[#181412]">
           Cardápio Oficial de Pista & Bar
         </h1>
         <p class="text-xs sm:text-sm text-[#524842] max-w-xl mx-auto">
@@ -123,7 +123,7 @@ const attendantWhatsUrl = createWhatsAppUrl("Olá! Estou no Novo Boliche e gosta
           <div class="flex flex-wrap items-center justify-between gap-3 pb-2 border-b-2 border-[#181412]">
             <div class="flex items-center gap-2.5">
               <span class="w-3 h-3 rounded-full bg-[#C41E14] inline-block"></span>
-              <h2 class="text-xl sm:text-2xl font-black font-display uppercase tracking-tight text-[#181412]">
+              <h2 class="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#181412]">
                 {category.title}
               </h2>
             </div>
@@ -132,10 +132,10 @@ const attendantWhatsUrl = createWhatsAppUrl("Olá! Estou no Novo Boliche e gosta
           <!-- Category Banner (if applicable, e.g. Pizzas) -->
           {category.banner && (
             <div class="p-3.5 sm:p-4 rounded-xl bg-white border-2 border-[#181412] shadow-[3px_3px_0px_#181412] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-              <span class="font-display font-black text-xs sm:text-sm uppercase tracking-wide text-[#C41E14]">
+              <span class="font-black text-xs sm:text-sm uppercase tracking-wide text-[#C41E14]">
                 ★ {category.banner.title}
               </span>
-              <span class="font-mono font-bold text-xs text-[#181412] tabular-numbers">
+              <span class="font-bold text-xs text-[#181412] tabular-numbers">
                 {category.banner.description}
               </span>
             </div>
@@ -154,18 +154,18 @@ const attendantWhatsUrl = createWhatsAppUrl("Olá! Estou no Novo Boliche e gosta
                 <div>
                   <!-- Header row: Code + SubCategory -->
                   <div class="flex items-center justify-between gap-2 mb-1.5">
-                    <span class="font-mono font-bold text-xs px-2 py-0.5 rounded bg-[#FAF6EE] text-[#181412] border border-[#181412] tabular-numbers">
+                    <span class="font-bold text-xs px-2 py-0.5 rounded bg-[#FAF6EE] text-[#181412] border border-[#181412] tabular-numbers">
                       #{item.code}
                     </span>
                     {item.subCategory && (
-                      <span class="text-[10px] font-mono text-[#786F66] uppercase font-bold">
+                      <span class="text-[10px] text-[#786F66] uppercase font-bold">
                         {item.subCategory}
                       </span>
                     )}
                   </div>
 
                   <!-- Item Name -->
-                  <h3 class="text-base font-extrabold text-[#181412] font-display tracking-tight leading-snug">
+                  <h3 class="text-base font-extrabold text-[#181412] tracking-tight leading-snug">
                     {item.name}
                   </h3>
 
@@ -179,7 +179,7 @@ const attendantWhatsUrl = createWhatsAppUrl("Olá! Estou no Novo Boliche e gosta
 
                 <!-- Price Row (Clean tabular typography, No "Preço" label) -->
                 <div class="pt-3 mt-3 border-t border-[#181412]/15 flex items-center justify-end">
-                  <span class="text-sm sm:text-base font-black font-mono text-[#181412] tabular-numbers tracking-tight">
+                  <span class="text-sm sm:text-base font-black text-[#181412] tabular-numbers tracking-tight">
                     {item.price}
                   </span>
                 </div>
@@ -201,13 +201,13 @@ const attendantWhatsUrl = createWhatsAppUrl("Olá! Estou no Novo Boliche e gosta
 
     <!-- Bottom Notice -->
     <div class="max-w-[1380px] w-full mx-auto px-4 sm:px-6 lg:px-8 mt-12 text-center space-y-2">
-      <p class="text-xs font-mono text-[#786F66] uppercase tracking-wider">
+      <p class="text-xs text-[#786F66] uppercase tracking-wider">
         Proibida a venda de bebidas alcoólicas para menores de 18 anos • Se beber, não dirija.
       </p>
       <div class="pt-2">
         <a 
           href="/" 
-          class="inline-flex items-center gap-2 text-xs font-bold font-mono text-[#C41E14] hover:underline"
+          class="inline-flex items-center gap-2 text-xs font-bold text-[#C41E14] hover:underline"
         >
           <span>← Conhecer as pistas e horários do Novo Boliche</span>
         </a>
