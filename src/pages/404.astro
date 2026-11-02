@@ -1,137 +1,60 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { createWhatsAppUrl } from '../data/pricing';
-
-const whatsUrl = createWhatsAppUrl("Olá! Estava navegando no site do Novo Boliche e acabei caindo em uma página inexistente, poderia me ajudar?");
 ---
 
 <MainLayout 
-  title="Página Não Encontrada (404) — Novo Boliche Vila Maria"
-  description="Ops! Parece que essa bola foi direto pra canaleta. A página que você tentou acessar rolou para fora da pista. Volte para o jogo no Novo Boliche Vila Maria."
+  title="Essa bola foi na canaleta! (404) — Novo Boliche Vila Maria"
+  description="A página que você tentou acessar não existe ou saiu do ar. Volte para a página inicial do Novo Boliche Vila Maria."
 >
-  <Header />
-
-  <main class="flex-1 flex flex-col justify-center py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#FAF6EE] relative overflow-hidden">
-    <div class="max-w-3xl w-full mx-auto text-center space-y-8 relative z-10">
+  <main style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #FAF6EE; padding: 24px; box-sizing: border-box;">
+    <div style="max-width: 680px; width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
       
-      <!-- Top Pill Badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border-2 border-[#181412] text-[#181412] text-xs font-bold uppercase tracking-wider shadow-[2px_2px_0px_#181412]">
-        <span class="w-2.5 h-2.5 rounded-full bg-[#C41E14] inline-block animate-pulse"></span>
-        <span>Código 404 • Pista Vazia</span>
-      </div>
-
-      <!-- 404 Display with Bowling Ball as 0 -->
-      <div class="flex items-center justify-center gap-3 sm:gap-6 select-none my-2" aria-label="Erro 404">
-        <span class="text-7xl sm:text-9xl md:text-[140px] lg:text-[160px] font-black tracking-tighter text-[#181412] leading-none">
+      <!-- COMPOSIÇÃO DO "404" TEMÁTICO (4 [BOLA] 4) -->
+      <div style="display: flex; align-items: center; justify-content: center; gap: clamp(8px, 2vw, 22px); user-select: none;" aria-label="Erro 404">
+        <span style="font-size: clamp(90px, 14vw, 150px); font-weight: 900; line-height: 1; color: #181412; letter-spacing: -0.03em;">
           4
         </span>
 
-        <!-- Bowling Ball 0 -->
+        <!-- BOLA DE BOLICHE CENTRAL -->
         <div 
-          class="relative w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 group cursor-pointer transition-transform duration-300 hover:rotate-45 active:scale-95" 
+          style="width: clamp(75px, 11vw, 120px); height: clamp(75px, 11vw, 120px); flex-shrink: 0; display: flex; align-items: center; justify-content: center;"
           title="Bola na canaleta!"
         >
-          <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-[4px_4px_0px_#181412]" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bola de Boliche">
-            <!-- Ball Shell -->
-            <circle cx="50" cy="50" r="46" fill="#C41E14" stroke="#181412" stroke-width="4"/>
-            <!-- Subtle Highlight Arc -->
-            <path d="M 22 28 A 36 36 0 0 1 66 16" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.35"/>
-            <!-- Finger Holes with depth -->
-            <circle cx="42" cy="40" r="5.5" fill="#181412"/>
-            <circle cx="42" cy="39" r="4.2" fill="#3D0E11"/>
-            <circle cx="58" cy="40" r="5.5" fill="#181412"/>
-            <circle cx="58" cy="39" r="4.2" fill="#3D0E11"/>
-            <!-- Thumb Hole (Larger) -->
+          <svg viewBox="0 0 100 100" style="width: 100%; height: 100%; display: block;" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bola de Boliche">
+            <!-- Corpo esférico vermelho (#C9281D) com borda escura (#181412) -->
+            <circle cx="50" cy="50" r="46" fill="#C9281D" stroke="#181412" stroke-width="5"/>
+            <!-- Arco sutil de reflexo/brilho -->
+            <path d="M 25 27 A 33 33 0 0 1 65 17" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" opacity="0.35"/>
+            <!-- 3 furos pretos clássicos de pegada -->
+            <circle cx="43" cy="40" r="5" fill="#181412"/>
+            <circle cx="57" cy="40" r="5" fill="#181412"/>
             <circle cx="50" cy="62" r="7" fill="#181412"/>
-            <circle cx="50" cy="61" r="5.5" fill="#3D0E11"/>
           </svg>
         </div>
 
-        <span class="text-7xl sm:text-9xl md:text-[140px] lg:text-[160px] font-black tracking-tighter text-[#181412] leading-none">
+        <span style="font-size: clamp(90px, 14vw, 150px); font-weight: 900; line-height: 1; color: #181412; letter-spacing: -0.03em;">
           4
         </span>
       </div>
 
-      <!-- Pin-Stripe Dual Divider -->
-      <div class="pin-stripe-divider max-w-xs mx-auto"></div>
+      <!-- TEXTO CURTO E DIRETO -->
+      <h1 style="font-size: clamp(22px, 3vw, 32px); font-weight: 900; color: #181412; text-transform: uppercase; margin: 24px 0 8px 0; letter-spacing: -0.02em; line-height: 1.2;">
+        ESSA BOLA FOI NA CANALETA!
+      </h1>
 
-      <!-- Headline and Explanation -->
-      <div class="space-y-3 max-w-xl mx-auto">
-        <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-[#181412]">
-          Ops! Essa bola foi parar na canaleta...
-        </h1>
-        <p class="text-sm sm:text-base text-[#524842] leading-relaxed">
-          O link que você acessou rolou para fora da pista ou a página não existe mais. Mas não se preocupe: nossas 10 pistas e a cozinha completa continuam esperando por você!
-        </p>
-      </div>
+      <p style="font-size: 16px; color: #524842; margin-bottom: 32px; line-height: 1.5;">
+        A página que você tentou acessar não existe ou saiu do ar.
+      </p>
 
-      <!-- Primary Action Buttons -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-        <a 
-          href="/" 
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl text-sm font-bold text-white bg-[#181412] hover:bg-[#C41E14] border-2 border-[#181412] shadow-[3px_3px_0px_#181412] transition-all duration-200 hover:scale-105 active:scale-95 group"
-        >
-          <svg class="w-4 h-4 stroke-current fill-none group-hover:-translate-x-1 transition-transform" viewBox="0 0 24 24" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          <span>Voltar para a Página Inicial</span>
-        </a>
-
-        <a 
-          href="/cardapio" 
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl text-sm font-bold text-[#181412] bg-white hover:bg-[#F4EFE6] border-2 border-[#181412] shadow-[3px_3px_0px_#181412] transition-all duration-200 hover:scale-105 active:scale-95"
-        >
-          <span>Ver Cardápio Virtual</span>
-          <span class="text-base">🍕</span>
-        </a>
-
-        <a 
-          href={whatsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl text-sm font-bold text-white bg-[#168B42] hover:bg-[#127236] border-2 border-[#181412] shadow-[3px_3px_0px_#181412] transition-all duration-200 hover:scale-105 active:scale-95"
-        >
-          <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.58 1.968.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.449.741.964 1.2 201 1.028 1.139 1.192 1.312.087.058.174.043.245-.043.072-.087.318-.376.405-.506.086-.13.173-.101.289-.058.116.043.737.347.864.411.127.064.212.096.242.149.03.053.03.31-.114.715z"/>
-          </svg>
-          <span>Tirar Dúvida no WhatsApp</span>
-        </a>
-      </div>
-
-      <!-- Quick Helpful Shortcuts Grid -->
-      <div class="pt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-        <a 
-          href="/#horarios" 
-          class="p-4 rounded-xl bg-white border-2 border-[#181412] shadow-[3px_3px_0px_#181412] hover:border-[#C41E14] transition-all hover:-translate-y-0.5 group block"
-        >
-          <div class="text-xs font-bold uppercase tracking-wider text-[#C41E14] mb-1">Pistas & Valores</div>
-          <div class="text-sm font-bold text-[#181412] group-hover:text-[#C41E14] transition-colors">Horários de Funcionamento</div>
-          <p class="text-xs text-[#524842] mt-1">Valores por hora, dias da semana e turnos.</p>
-        </a>
-
-        <a 
-          href="/#eventos" 
-          class="p-4 rounded-xl bg-white border-2 border-[#181412] shadow-[3px_3px_0px_#181412] hover:border-[#C41E14] transition-all hover:-translate-y-0.5 group block"
-        >
-          <div class="text-xs font-bold uppercase tracking-wider text-[#C41E14] mb-1">Comemorações</div>
-          <div class="text-sm font-bold text-[#181412] group-hover:text-[#C41E14] transition-colors">Aniversários e Festas</div>
-          <p class="text-xs text-[#524842] mt-1">Pacotes especiais para reunir amigos e famílias.</p>
-        </a>
-
-        <a 
-          href="/#localizacao" 
-          class="p-4 rounded-xl bg-white border-2 border-[#181412] shadow-[3px_3px_0px_#181412] hover:border-[#C41E14] transition-all hover:-translate-y-0.5 group block"
-        >
-          <div class="text-xs font-bold uppercase tracking-wider text-[#C41E14] mb-1">Como Chegar</div>
-          <div class="text-sm font-bold text-[#181412] group-hover:text-[#C41E14] transition-colors">Vila Maria, Zona Norte</div>
-          <p class="text-xs text-[#524842] mt-1">Av. Guilherme Cotching, 1453 • Rotas no GPS.</p>
-        </a>
-      </div>
+      <!-- ÚNICO BOTÃO DE AÇÃO (CTA DE RETORNO) -->
+      <a 
+        href="/" 
+        style="display: inline-flex; align-items: center; justify-content: center; background-color: #181412; color: #FFFFFF; border: 2px solid #181412; box-shadow: 4px 4px 0px #C9281D; border-radius: 8px; padding: 14px 28px; font-weight: 800; font-size: 15px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;"
+        class="hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0px_#C9281D]"
+      >
+        ← Voltar para a Página Inicial
+      </a>
 
     </div>
   </main>
-
-  <Footer />
 </MainLayout>
