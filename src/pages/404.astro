@@ -1,0 +1,60 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout 
+  title="Página não encontrada — Novo Boliche Vila Maria"
+  description="A página que você tentou acessar não existe ou saiu do ar. Volte para a página inicial do Novo Boliche Vila Maria."
+>
+  <main style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #FAF6EE; padding: 24px; box-sizing: border-box;">
+    <div style="max-width: 680px; width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      
+      <!-- COMPOSIÇÃO DO "404" TEMÁTICO (4 [BOLA] 4) -->
+      <div style="display: flex; align-items: center; justify-content: center; gap: clamp(8px, 2vw, 22px); user-select: none;" aria-label="Erro 404">
+        <span style="font-size: clamp(90px, 14vw, 150px); font-weight: 900; line-height: 1; color: #181412; letter-spacing: -0.03em;">
+          4
+        </span>
+
+        <!-- BOLA DE BOLICHE CENTRAL -->
+        <div 
+          style="width: clamp(75px, 11vw, 120px); height: clamp(75px, 11vw, 120px); flex-shrink: 0; display: flex; align-items: center; justify-content: center;"
+          title="Bola na canaleta!"
+        >
+          <svg viewBox="0 0 100 100" style="width: 100%; height: 100%; display: block;" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bola de Boliche">
+            <!-- Corpo esférico vermelho (#C9281D) com borda escura (#181412) -->
+            <circle cx="50" cy="50" r="46" fill="#C9281D" stroke="#181412" stroke-width="5"/>
+            <!-- Arco sutil de reflexo/brilho -->
+            <path d="M 25 27 A 33 33 0 0 1 65 17" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" opacity="0.35"/>
+            <!-- 3 furos pretos clássicos de pegada -->
+            <circle cx="43" cy="40" r="5" fill="#181412"/>
+            <circle cx="57" cy="40" r="5" fill="#181412"/>
+            <circle cx="50" cy="62" r="7" fill="#181412"/>
+          </svg>
+        </div>
+
+        <span style="font-size: clamp(90px, 14vw, 150px); font-weight: 900; line-height: 1; color: #181412; letter-spacing: -0.03em;">
+          4
+        </span>
+      </div>
+
+      <!-- TEXTO CURTO E DIRETO -->
+      <h1 style="font-size: clamp(22px, 3vw, 32px); font-weight: 900; color: #181412; text-transform: uppercase; margin: 24px 0 8px 0; letter-spacing: -0.02em; line-height: 1.2;">
+        ESSA BOLA FOI NA CANALETA!
+      </h1>
+
+      <p style="font-size: 16px; color: #524842; margin-bottom: 32px; line-height: 1.5;">
+        A página que você tentou acessar não existe ou saiu do ar.
+      </p>
+
+      <!-- ÚNICO BOTÃO DE AÇÃO (CTA DE RETORNO) -->
+      <a 
+        href="/" 
+        style="display: inline-flex; align-items: center; justify-content: center; background-color: #181412; color: #FFFFFF; border: 2px solid #181412; box-shadow: 4px 4px 0px #C9281D; border-radius: 8px; padding: 14px 28px; font-weight: 800; font-size: 15px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;"
+        class="hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0px_#C9281D]"
+      >
+        ← Voltar para a Página Inicial
+      </a>
+
+    </div>
+  </main>
+</MainLayout>
