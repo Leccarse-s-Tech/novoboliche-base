@@ -1,3 +1,7 @@
+import { type CategoryTheme, CATEGORY_THEMES, getCategoryTheme } from './categoryThemes';
+
+export { type CategoryTheme, CATEGORY_THEMES, getCategoryTheme };
+
 export interface MenuItem {
   code: string;
   name: string;
@@ -10,6 +14,7 @@ export interface MenuCategory {
   id: string;
   title: string;
   shortTitle: string;
+  theme?: CategoryTheme;
   banner?: {
     title: string;
     description: string;
